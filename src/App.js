@@ -6,7 +6,6 @@ import Routes from './routes/Routes'
 const App = () => {
   return (
     <Layout>
-      <Header/>
       <Routes/>
     </Layout>
   )
