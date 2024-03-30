@@ -1,13 +1,15 @@
 import React from 'react'
 
 import {Routes as ReactDomRoutes, Route} from 'react-router-dom'
-import Home from '../pages/Home/Home'
+import Mensual from '../pages/Mensual/Mensual'
+import Semanal from '../pages/Semanal/Semanal'
 
 
 const Routes = () => {
   return (
     <ReactDomRoutes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Mensual/>}/>
+      <Route path='/semanal' element={<Semanal/>}/>
     </ReactDomRoutes>
   )
 }

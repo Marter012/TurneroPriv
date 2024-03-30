@@ -11,7 +11,7 @@ const MontserratCalendar = () => {
 
 const Calendar1 = () => {
   return (
-    <WrapperCalendar className="hola">
+    <WrapperCalendar>
       <MontserratCalendar />
     </WrapperCalendar>
   );
