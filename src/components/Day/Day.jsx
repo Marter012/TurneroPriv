@@ -1,30 +1,47 @@
-import React from 'react'
-import { ContainerDay, ContainerShifts, ShiftDay } from './DayStyles'
-import moment from 'moment';
+import React from "react";
+import { ContainerDay, ContainerShifts, ShiftDay } from "./DayStyles";
 
-const Day = ({day,date}) => { 
-    let fecha = moment(`2024-03-${32}`)
+const Day = ({ day, date,activeDay }) => {
+
   return (
-    <ContainerDay>
-      <h3>{`${day} ${fecha.format("Do")}`}</h3>
-      <ContainerShifts>
+    <ContainerDay activeDay={activeDay} >
+      <h3>{`${day} ${date}`}</h3>
+      <ContainerShifts >
         <ShiftDay>
-            <span>14:30hs</span>
-            <p>Martin</p>
+          <span>14:30hs</span>
+          <p>Martin</p>
         </ShiftDay>
         <ShiftDay>
-            <span>14:30hs</span>
-            <p>Martin</p>
-        </ShiftDay><ShiftDay>
-            <span>14:30hs</span>
-            <p>Martin</p>
-        </ShiftDay><ShiftDay>
-            <span>14:30hs</span>
-            <p>Martin</p>
+          <span>14:30hs</span>
+          <p>Martin</p>
+        </ShiftDay>
+        <ShiftDay>
+          <span>14:30hs</span>
+          <p>Martin</p>
+        </ShiftDay>
+        <ShiftDay>
+          <span>14:30hs</span>
+          <p>Martin</p>
+        </ShiftDay>
+        <ShiftDay>
+          <span>14:30hs</span>
+          <p>Martin</p>
+        </ShiftDay>
+        <ShiftDay>
+          <span>14:30hs</span>
+          <p>Martin</p>
+        </ShiftDay>
+        <ShiftDay>
+          <span>14:30hs</span>
+          <p>Martin</p>
+        </ShiftDay>
+        <ShiftDay>
+          <span>14:30hs</span>
+          <p>Martin</p>
         </ShiftDay>
       </ContainerShifts>
     </ContainerDay>
-  )
-}
+  );
+};
 
-export default Day
+export default Day;

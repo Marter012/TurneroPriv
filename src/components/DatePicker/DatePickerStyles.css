@@ -1,0 +1,13 @@
+.Picker {
+  div {
+    background-color: rgb(0, 0, 0, 0.8);
+    text-align: center;
+    align-items: center;
+    padding: 0%;
+    input {
+      color: white;
+      cursor: pointer;
+      text-align: center;
+    }
+  }
+}

@@ -4,5 +4,6 @@ export const addShiftsInitialValues = {
     name : "",
     price : "",
     location : "",
-    activity : "" 
+    phone : "",
+    activity : ""
 }

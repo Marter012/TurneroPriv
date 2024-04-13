@@ -30,7 +30,8 @@ const Header = () => {
           return (
             <HeaderItem
               onClick={() => dispatch(selectItem(name))}
-              activePage={name === selecItem}
+              $activePage={name === selecItem}
+              key={name}
             >
               <Link to={route}>{name}</Link>
             </HeaderItem>

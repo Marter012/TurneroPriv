@@ -7,7 +7,6 @@ export const WrapperShifts = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background-color: rgb(0, 0, 0, 0.5);
   align-items: center;
   overflow: hidden;
 `;

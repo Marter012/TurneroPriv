@@ -5,11 +5,13 @@ import persistReducer from "redux-persist/es/persistReducer";
 import BurgerMenuReducer from "./BurgerMenu/BurgerMenuSlice";
 import HeaderItemsReducer from "./HeaderItems/HeaderItemsSlice";
 import NavShiftsReducer from "./NavShifts/NavShiftsSlicer";
+import SelectedDayReducer from "./SelectedDay/SelectedDaySlice";
 
 const reducers = combineReducers({
   burgerMenu : BurgerMenuReducer,
   selectedItem : HeaderItemsReducer,
-  selectedShifts : NavShiftsReducer
+  selectedShifts : NavShiftsReducer,
+  selectDay : SelectedDayReducer
 });
 
 const persistConfig = {

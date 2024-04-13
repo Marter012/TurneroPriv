@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   hidden: false,
-  selected: 2,
+  selected: 1,
 };
 
 export const NavShiftsSlicer = createSlice({

@@ -1,9 +1,9 @@
 import React from 'react'
 import { ButtonStyles } from './ButtonStyles'
 
-const Button = ({children,bg_color}) => {
+const Button = ({children,bg_color, type = "submit"}) => {
   return (
-    <ButtonStyles bg_color={bg_color}>
+    <ButtonStyles type={type} bg_color={bg_color}>
       {children}
     </ButtonStyles>
   )

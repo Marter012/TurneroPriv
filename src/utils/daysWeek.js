@@ -1,30 +1,30 @@
 export const dayWeeks = [
-    {
-        day: "Lunes",
-        date : 0,
-    },
-    {
-        day: "Martes",
-        date : 1,
-    },
-    {
-        day: "Miercoles",
-        date : 2,
-    },
-    {
-        day: "Jueves",
-        date : 3,
-    },
-    {
-        day: "Viernes",
-        date : 4,
-    },
-    {
-        day: "Sabado",
-        date : 5,
-    },
-    {
-        day: "Domingo",
-        date : 6,
-    },
-]
+  {
+    day: "Domingo",
+    id: 0,
+  },
+  {
+    day: "Lunes",
+    id: 1,
+  },
+  {
+    day: "Martes",
+    id: 2,
+  },
+  {
+    day: "Miercoles",
+    id: 3,
+  },
+  {
+    day: "Jueves",
+    id: 4,
+  },
+  {
+    day: "Viernes",
+    id: 5,
+  },
+  {
+    day: "Sabado",
+    id: 6,
+  },
+];
