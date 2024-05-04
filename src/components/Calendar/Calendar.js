@@ -8,7 +8,6 @@ import dayjs from "dayjs";
 const MontserratCalendar = () => {
   const [date, setDate] = useState(new Date());
   const dispatch = useDispatch();
-  console.log(date)
   dispatch(SelectDay(dayjs(date)));
   return (
     <Calendar value={date} onChange={setDate} locale="en" calendarType="US" />

@@ -1,30 +1,64 @@
 import React from "react";
-import { ShiftsCard, ShiftsCardBottom, ShiftsCardTop } from "./ShiftsStyles";
+import { ShiftsCard, ShiftsCardBottom, ShiftsCardColumn } from "./ShiftsStyles";
 import { ButtonStyles } from "../IU/Button/ButtonStyles";
+import { updateStateShifts } from "../../axios/axiosShifts";
+import { useDispatch } from "react-redux";
+import { toggleNavShifts } from "../../redux/NavShifts/NavShiftsSlicer";
 
-const Shifts = () => {
+const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
+  let activities = activity.split(",");
+  const dispatch = useDispatch();
   return (
     <ShiftsCard>
-      <ShiftsCardTop>
-        <p>14:00hs</p>
-        <h2>Franco capayan</h2>
-        <p> $15000</p>
-        <p>GYM</p>
-      </ShiftsCardTop>
-
+      <ShiftsCardColumn column="one">
+        <p>{schedule}</p>
+      </ShiftsCardColumn>
+      <ShiftsCardColumn column="two">
+        <h2>
+          {name.toLowerCase().replace(/\b\w/g, function (l) {
+            return l.toUpperCase();
+          })}
+        </h2>
+      </ShiftsCardColumn>
+      <ShiftsCardColumn column="tree">
+        <p>${price}</p>
+      </ShiftsCardColumn>
+      <ShiftsCardColumn column="four">
+        <p>{location.toUpperCase()}</p>
+      </ShiftsCardColumn>
       <ShiftsCardBottom>
-        <p>Tintura</p>
-        <p>Alisado</p>
-        <p>Color</p>
-        <p>Color</p>
-        <ButtonStyles bg_color="green">
-          <a
-            href={`https://api.whatsapp.com/send/?phone=3516729150&text=Buenas, queria confirmar tu turno en ${"GYM"} a las ${"14hs"}`}
-          >
-            3516478584
-          </a>
-        </ButtonStyles>
+        <ShiftsCardColumn column="five">
+          {activities.map((item) => {
+            return <p>{item}</p>;
+          })}
+        </ShiftsCardColumn>
+        <ShiftsCardColumn column="six">
+          <ButtonStyles bg_color="green">
+            <a
+              href={`https://api.whatsapp.com/send/?phone=${phone}&text=Hola ${name
+                .toLowerCase()
+                .replace(/\b\w/g, function (l) {
+                  return l.toUpperCase();
+                })}, confirmamos tu turno en ${location.toUpperCase()} a las ${schedule}?`}
+            >
+              {phone}
+            </a>
+          </ButtonStyles>
+        </ShiftsCardColumn>
       </ShiftsCardBottom>
+
+      <ButtonStyles
+        bg_color="red"
+        s_position="absolute"
+        s_padding="5px 10px 5px 10px "
+        s_border_radius="50%"
+        onClick={() => {
+          updateStateShifts(code);
+          dispatch(toggleNavShifts());
+        }}
+      >
+        x
+      </ButtonStyles>
     </ShiftsCard>
   );
 };

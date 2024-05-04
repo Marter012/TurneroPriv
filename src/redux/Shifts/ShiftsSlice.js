@@ -8,8 +8,12 @@ export const ShiftsSlice = createSlice({
   name: "Shifts",
   initialState: INITIAL_STATE,
   reducers: {
-    getShifts: (state) => {
-      return state;
+    addShifts: (state, actions) => {
+      return { ...state, Shifts: actions.payload };
     },
   },
 });
+
+export const { addShifts} = ShiftsSlice.actions;
+
+export default ShiftsSlice.reducer;

@@ -5,7 +5,6 @@ export const ContainerActionShifts = styled.div`
   display: ${({ selected }) => (selected ? "flex" : "none")};
   width: 80%;
   height: 100%;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;

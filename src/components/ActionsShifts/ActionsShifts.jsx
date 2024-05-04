@@ -1,26 +1,39 @@
 import React from "react";
-import {
-  ContainerActionShifts,
-  Form,
-} from "./ActionsShiftsStyles";
-import { useSelector } from "react-redux";
+import { ContainerActionShifts, Form } from "./ActionsShiftsStyles";
+import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import Input from "../IU/Input/Input";
 import Submit from "../IU/Submit/Submit";
 import { addShiftsInitialValues } from "../Formik/InitialValues";
 import { ShiftsValidationSchema } from "../Formik/ValidationSchema";
+import { createShift } from "../../axios/axiosShifts";
+import { selectedNavShifts } from "../../redux/NavShifts/NavShiftsSlicer";
 
 const ActionsShifts = () => {
   const selectedNav = useSelector((state) => state.selectedShifts.selected);
-
+  const dispatch = useDispatch()
   return (
     <ContainerActionShifts selected={selectedNav === 2}>
       <Formik
         initialValues={addShiftsInitialValues}
         validationSchema={ShiftsValidationSchema}
         onSubmit={async (values, { resetForm }) => {
+          const { date, schedule, name, price, location, phone, activity } =
+            values;
+
+          let category = "shifts";
+          const shift = await createShift(
+            category,
+            date,
+            schedule,
+            name,
+            price,
+            location,
+            phone,
+            activity
+          );
           resetForm();
-          console.log(values);
+          dispatch(selectedNavShifts(1))
         }}
       >
         <Form>

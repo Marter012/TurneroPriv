@@ -6,8 +6,10 @@ import BurgerMenuReducer from "./BurgerMenu/BurgerMenuSlice";
 import HeaderItemsReducer from "./HeaderItems/HeaderItemsSlice";
 import NavShiftsReducer from "./NavShifts/NavShiftsSlicer";
 import SelectedDayReducer from "./SelectedDay/SelectedDaySlice";
+import ShiftsReducer from "./Shifts/ShiftsSlice";
 
 const reducers = combineReducers({
+  shifts : ShiftsReducer,
   burgerMenu : BurgerMenuReducer,
   selectedItem : HeaderItemsReducer,
   selectedShifts : NavShiftsReducer,
