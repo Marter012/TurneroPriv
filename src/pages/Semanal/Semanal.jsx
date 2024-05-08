@@ -6,9 +6,13 @@ import { useSelector } from "react-redux";
 
 import dayjs from "dayjs";
 import DatePickerUI from "../../components/DatePicker/DatePicker";
+import { useActiveGetShifts } from "../../components/useHook/useActiveGetShifts";
 
 const Semanal = () => {
   const selectedDay = useSelector((state) => state.selectDay.day);
+  useActiveGetShifts();
+  const shifts = useSelector((state) => state.shifts.listShiftsDay);
+  console.log(shifts)
   return (
     <SemanalWrapper>
       <DatePickerUI />
@@ -16,14 +20,23 @@ const Semanal = () => {
         {dayWeeks.map(({ day, id }) => {
           let nextDay = dayjs(dayjs(selectedDay).startOf("week"))
             .add(id, "day")
-            .format("DD/MM")
+            .format("YYYY-MM-DD")
             .toString();
-
           return (
             <Day
-              activeDay={dayjs(selectedDay).format("DD/MM") === nextDay}
+              activeDay={dayjs(selectedDay).format("YYYY-MM-DD") === nextDay}
               day={day}
-              date={nextDay}
+              nextDay={
+                (nextDay = dayjs(dayjs(selectedDay).startOf("week"))
+                  .add(id, "day")
+                  .format("YYYY-MM-DD")
+                  .toString())
+              }
+              shiftsDay={shifts?.filter(
+                (item) =>
+                  item.date === dayjs(nextDay).format("YYYY-MM-DD") &&
+                  item.state === true
+              )}
             />
           );
         })}

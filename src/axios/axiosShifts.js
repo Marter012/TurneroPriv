@@ -1,18 +1,15 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import dayjs from "dayjs";
 
-export const getShifts = async (category, date) => {
-  const formatDate = dayjs(date).format("YYYY-MM-DD");
+export const getShifts = async (category) => {
   try {
     const response = await axios.post(`${BASE_URL}/auth/getShifts`, {
       category,
-      date: formatDate,
-      state : true
     });
-    return { response: response };
+    return response?.data?.shifts;
   } catch (error) {
-    return error.response.data?.errors?.errors[0].msg;
+    console.log(error.response.data.msg)
+    return error.response.data;
   }
 };
 

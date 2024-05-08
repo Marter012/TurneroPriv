@@ -2,12 +2,12 @@ import React from "react";
 import { ShiftsCard, ShiftsCardBottom, ShiftsCardColumn } from "./ShiftsStyles";
 import { ButtonStyles } from "../IU/Button/ButtonStyles";
 import { updateStateShifts } from "../../axios/axiosShifts";
+
 import { useDispatch } from "react-redux";
 import { toggleNavShifts } from "../../redux/NavShifts/NavShiftsSlicer";
-
 const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
   let activities = activity.split(",");
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   return (
     <ShiftsCard>
       <ShiftsCardColumn column="one">
@@ -26,14 +26,14 @@ const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
       <ShiftsCardColumn column="four">
         <p>{location.toUpperCase()}</p>
       </ShiftsCardColumn>
-      <ShiftsCardBottom>
+
         <ShiftsCardColumn column="five">
           {activities.map((item) => {
-            return <p>{item}</p>;
+            return <span>{item}</span>;
           })}
         </ShiftsCardColumn>
         <ShiftsCardColumn column="six">
-          <ButtonStyles bg_color="green">
+          <ButtonStyles s_padding={"5px 15px 5px 15px"} bg_color="green">
             <a
               href={`https://api.whatsapp.com/send/?phone=${phone}&text=Hola ${name
                 .toLowerCase()
@@ -45,7 +45,6 @@ const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
             </a>
           </ButtonStyles>
         </ShiftsCardColumn>
-      </ShiftsCardBottom>
 
       <ButtonStyles
         bg_color="red"
@@ -53,8 +52,12 @@ const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
         s_padding="5px 10px 5px 10px "
         s_border_radius="50%"
         onClick={() => {
+          //updateStateShifts(code);
+          console.log("activao")
           updateStateShifts(code);
-          dispatch(toggleNavShifts());
+          setTimeout(() => {
+            dispatch(toggleNavShifts());
+          }, 500);
         }}
       >
         x

@@ -3,7 +3,7 @@ import { Form as FormikForm } from "formik";
 
 export const ContainerActionShifts = styled.div`
   display: ${({ selected }) => (selected ? "flex" : "none")};
-  width: 80%;
+  width: 100%;
   height: 100%;
   flex-direction: column;
   justify-content: center;

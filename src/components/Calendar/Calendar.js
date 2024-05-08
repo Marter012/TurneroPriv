@@ -14,9 +14,10 @@ const MontserratCalendar = () => {
   );
 };
 
-const Calendar1 = () => {
+const Calendar1 = ({mobileState}) => {
+  console.log(mobileState)
   return (
-    <WrapperCalendar>
+    <WrapperCalendar mobileState={mobileState}>
       <MontserratCalendar />
     </WrapperCalendar>
   );

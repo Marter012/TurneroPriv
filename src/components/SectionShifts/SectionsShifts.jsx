@@ -7,9 +7,11 @@ import NavShists from "../NavShists/NavShists";
 
 export let actividades
 
-const SectionsShifts = () => {
+const SectionsShifts = ({mobileState}) => {
+  console.log(mobileState)
+
   return (
-    <WrapperShifts>
+    <WrapperShifts mobileState={mobileState}>
       <NavShists/>      
       <ListShifts />
       <ActionsShifts/>

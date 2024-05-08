@@ -9,7 +9,7 @@ export const InputContainerStyles = styled.div`
 `;
 
 export const InputStyles = styled.input`
-  width: 300px;
+  width: 200px;
   height: 40px;
   background-color: rgb(250, 250, 250, 0.6);
   border-top-left-radius: 30%;
@@ -20,14 +20,23 @@ export const InputStyles = styled.input`
   border-right: 5px solid beige;
   font-size: 1.2rem;
   font-weight: 600;
+
+  @media (max-width: 768px) {
+  width: 350px;
+  }
+
+  @media (max-width: 460px) {
+  width: 200px;
+  }
 `;
 export const ErrorMessageStyles = styled.p`
   margin: 0;
+  width: 30%;
   margin-top: 5px;
   color: #fb103d;
   display: flex;
   font-size: 14px;
-  justify-content: center;
+  text-align: center;
   align-items: center;
   font-weight: 800;
 `;

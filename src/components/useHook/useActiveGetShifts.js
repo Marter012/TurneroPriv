@@ -1,25 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getShifts } from "../../axios/axiosShifts";
 import { useEffect } from "react";
-import { addShifts } from "../../redux/Shifts/ShiftsSlice";
+import { addShifts, addShiftsDay } from "../../redux/Shifts/ShiftsSlice";
+import dayjs from "dayjs";
 
-export const useActiveGetShifts = () => {
-  const activeUpdate = useSelector((state) => state.selectedShifts.hidden);
+export const useActiveGetShifts = (selectDay, setlett) => {
+  const hidden = useSelector((state) => state.selectedShifts.hidden);
   const selectedNav = useSelector((state) => state.selectedShifts.selected);
   const selectedDay = useSelector((state) => state.selectDay.day);
   const dispatch = useDispatch();
-
   useEffect(() => {
     const ho = async () => {
-      console.log("hola");
       const response = await getShifts("shifts");
-      console.log("hola 2");
-      console.log(response);
-      dispatch(addShifts(response?.response.data.shifts));
-      console.log("hola 3");
+      if (selectDay !== undefined) {
+        const formatDate = dayjs(selectDay).format("YYYY-MM-DD");
+        dispatch(
+          addShiftsDay(response.filter((item) => item.date === formatDate))
+        );
+        setlett(response);
+        return;
+      }
+      dispatch(addShifts(response));
+
       return;
     };
     ho();
+    return;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedDay, selectedNav, activeUpdate]);
+  }, [selectedDay, selectedNav, hidden]);
 };

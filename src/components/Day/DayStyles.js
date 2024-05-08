@@ -20,17 +20,29 @@ export const ContainerDay = styled.div`
     background-color: ${({ activeDay }) =>
       activeDay ? "rgb(250,250,250)" : "rgb(250,250,250,0.5)"};
   }
+
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 1rem;
+    }
+  }
 `;
 
 export const ContainerShifts = styled.div`
   width: 100%;
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   padding-top: 10px;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   gap: 10px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+  }
 `;
 
 export const ShiftDay = styled.div`
@@ -45,5 +57,12 @@ export const ShiftDay = styled.div`
   span {
     margin: 0%;
     font-size: 1.1rem;
+  }
+
+  @media (max-width: 768px) {
+    p,
+    span {
+      font-size: 1rem;
+    }
   }
 `;
