@@ -10,21 +10,29 @@ export const ContainerDay = styled.div`
   background-color: ${({ activeDay }) =>
     activeDay ? "rgb(200, 150, 160)" : "rgb(200, 150, 160, 0.5)"};
 
-  h3 {
-    width: 100%;
-    height: 10%;
-    margin: 0%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: ${({ activeDay }) =>
-      activeDay ? "rgb(250,250,250)" : "rgb(250,250,250,0.5)"};
-  }
-
   @media (max-width: 768px) {
     h3 {
       font-size: 1rem;
     }
+  }
+
+  @media (max-width: 460px) {
+    min-width: 100px;
+  }
+`;
+
+export const ContainerDayWeek = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 10%;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ activeDay }) =>
+    activeDay ? "rgb(250,250,250)" : "rgb(250,250,250,0.5)"};
+  h3,
+  p {
+    margin: 0%;
   }
 `;
 

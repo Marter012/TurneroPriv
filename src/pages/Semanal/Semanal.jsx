@@ -11,8 +11,8 @@ import { useActiveGetShifts } from "../../components/useHook/useActiveGetShifts"
 const Semanal = () => {
   const selectedDay = useSelector((state) => state.selectDay.day);
   useActiveGetShifts();
-  const shifts = useSelector((state) => state.shifts.listShiftsDay);
-  console.log(shifts)
+  const shifts = useSelector((state) => state.shifts.listShifts);
+  console.log(shifts);
   return (
     <SemanalWrapper>
       <DatePickerUI />
@@ -24,6 +24,7 @@ const Semanal = () => {
             .toString();
           return (
             <Day
+              key={id}
               activeDay={dayjs(selectedDay).format("YYYY-MM-DD") === nextDay}
               day={day}
               nextDay={

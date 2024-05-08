@@ -8,14 +8,23 @@ import dayjs from "dayjs";
 const MontserratCalendar = () => {
   const [date, setDate] = useState(new Date());
   const dispatch = useDispatch();
+
   dispatch(SelectDay(dayjs(date)));
   return (
-    <Calendar value={date} onChange={setDate} locale="en" calendarType="US" />
+    <Calendar
+      formatShortWeekday={(locale, dateValue) =>
+        ["D", "L", "M", "M", "J", "V", "S"][dateValue.getDay()]
+      }
+      value={date}
+      onChange={setDate}
+      locale="es"
+      calendarType="US"
+    />
   );
 };
 
-const Calendar1 = ({mobileState}) => {
-  console.log(mobileState)
+const Calendar1 = ({ mobileState }) => {
+  console.log(mobileState);
   return (
     <WrapperCalendar mobileState={mobileState}>
       <MontserratCalendar />

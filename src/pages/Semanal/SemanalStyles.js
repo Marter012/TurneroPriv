@@ -7,7 +7,6 @@ export const SemanalWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 `;
 
 export const SemanalContainer = styled.div`
@@ -19,8 +18,14 @@ export const SemanalContainer = styled.div`
   border-radius: 30px;
   gap: 10px;
 
-
   @media (max-width: 768px) {
     width: 90vw;
+  }
+
+  @media (max-width: 460px) {
+    width: 90vw;
+    border-radius: 0px;
+    justify-content: start;
+    overflow-x: scroll;
   }
 `;

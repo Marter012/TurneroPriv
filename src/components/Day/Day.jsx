@@ -1,19 +1,28 @@
 import React from "react";
-import { ContainerDay, ContainerShifts, ShiftDay } from "./DayStyles";
+import {
+  ContainerDay,
+  ContainerDayWeek,
+  ContainerShifts,
+  ShiftDay,
+} from "./DayStyles";
 
 const Day = ({ day, nextDay, activeDay, shiftsDay }) => {
-  const formateDate  = `${nextDay.split("-")[2]}-${nextDay.split("-")[1]}`
+  const formateDate = `${nextDay.split("-")[2]}-${nextDay.split("-")[1]}`;
   return (
     <ContainerDay activeDay={activeDay}>
-      <h3>{`${day} ${formateDate}`}</h3>
+      <ContainerDayWeek>
+        <h3>{day}</h3>
+        <p>{formateDate}</p>
+      </ContainerDayWeek>
       <ContainerShifts>
         {shiftsDay.map((item) => {
           return (
             <>
-            <ShiftDay>
-              <p>{item.name}</p>
-              <span>{item.schedule}</span>
-            </ShiftDay></>
+              <ShiftDay>
+                <p>{item.name}</p>
+                <span>{item.schedule}</span>
+              </ShiftDay>
+            </>
           );
         })}
       </ContainerShifts>

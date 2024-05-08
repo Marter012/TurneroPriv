@@ -40,6 +40,14 @@ export const HeaderItem = styled.p`
     color: white;
     text-decoration: none;
   }
+
+  @media (max-width: 460px) {
+    width: 30%;
+
+    a {
+      font-size: 1.1rem;
+    }
+  }
 `;
 
 export const ModalOverlayStyled = styled(motion.div)`
