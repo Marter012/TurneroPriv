@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 export const ContainerNavShifts = styled.div`
-  width: 100%;
-  margin-top: 30px;
-  display: flex;
+  display: none;
+  width: 100vw;
+  height: 5vh;
   justify-content: space-around;
-
+  position: absolute;
+  top: 0;
   button {
     font-size: 1.5rem;
     width: 100%;
@@ -19,6 +20,14 @@ export const ContainerNavShifts = styled.div`
     color: black;
     transition-duration: 0.5s;
   }
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  @media (max-width: 460px) {
+    height: 10vh;
+  }
 `;
 
 export const ContainerNavMenu = styled.div`
@@ -27,7 +36,7 @@ export const ContainerNavMenu = styled.div`
   bottom: 0;
   display: flex;
   justify-content: space-around;
-  z-index:2;
+  z-index: 2;
   button {
     font-size: 1.5rem;
     width: 100%;

@@ -8,8 +8,8 @@ export const getShifts = async (category) => {
     });
     return response?.data?.shifts;
   } catch (error) {
-    console.log(error.response.data.msg)
-    return error.response.data;
+    console.log(error);
+    return error?.response?.data;
   }
 };
 

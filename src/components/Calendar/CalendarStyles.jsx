@@ -2,20 +2,85 @@ import styled from "styled-components";
 
 export const WrapperCalendar = styled.div`
   margin: 0;
-  width: 50vw;
-  height: 100vh;
+  width: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   @media (max-width: 768px) {
-    width: 100vw;
-    height: 100vh;
+  }
+`;
+
+export const ContainerMontserrat = styled.div`
+  position: absolute;
+  width: 40vw;
+  left: 0;
+  ${({ hiddenCalendar }) =>
+    hiddenCalendar
+      ? " transform : translateX(-40vw);transition-duration: 1s;"
+      : "transform : translateX(+60px);transition-duration: 1s;"}
+  z-index: +7;
+
+  @media (max-width: 768px) {
+    width: 50vw;
+    ${({ hiddenCalendar }) =>
+      hiddenCalendar
+        ? " transform : translateX(-50vw);transition-duration: 1s;"
+        : "transform : translateX(+60px);transition-duration: 1s;"}
+  }
+  @media (max-width: 460px) {
+    width: 90vw;
+    left: 5vw;
+    ${({ hiddenCalendar }) =>
+      hiddenCalendar
+        ? " transform : translateX(-95vw);transition-duration: 1s;"
+        : "transform : translateX(0);transition-duration: 1s;"}
+  }
+`;
+
+export const CalendarMenu = styled.div`
+  i {
+    display: none;
+  }
+
+  @media (max-width: 460px) {
     position: absolute;
-    top: 0;
-    transition-duration: 1s;
-    ${({mobileState})=> mobileState ? "z-index: 1; opacity: 1;" : "z-index: 0; opacity: 0;"}
-        ${({mobileState})=> console.log(mobileState)}
-        ${({mobileState})=> console.log(mobileState)}
+    left: 0;
+    font-size: 3rem;
+    z-index: +8;
+    bottom: 0;
+    color: white;
+    i {
+    }
+  }
+`;
+
+export const CalendarMenuItems = styled.div`
+  width: 60px;
+  height: 100vh;
+  justify-content: space-around;
+  background-color: rgb(250, 250, 250, 0.5);
+  align-items: center;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  z-index: +8;
+  left: -1%;
+  color: white;
+  p {
+    margin: 0;
+  }
+  @media (max-width: 1024px) {
+    height: 80vh;
+    top: 10vh;
+  }
+  @media (max-width: 768px) {
+    height: 80vh;
+    top: 10vh;
+  }
+  @media (max-width: 460px) {
+    display: none;
   }
 `;

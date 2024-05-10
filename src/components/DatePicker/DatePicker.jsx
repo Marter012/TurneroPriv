@@ -10,13 +10,24 @@ import { SelectDay } from "../../redux/SelectedDay/SelectedDaySlice";
 
 const DatePickerUI = () => {
   const selectedDay = useSelector((state) => state.selectDay.day);
-  const formatDay = dayjs(selectedDay);
-  const [Cdate, setDate] = useState(selectedDay);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(SelectDay(dayjs(Cdate)));
-  }, [Cdate, dispatch]);
 
+  const [Cdate, setDate] = useState(dayjs(selectedDay));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    setDate(selectedDay);
+  }, [selectedDay]);
+
+  useEffect(() => {
+    if (Cdate !== selectedDay) {
+      dispatch(SelectDay(dayjs(Cdate)));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [Cdate]);
+
+  const handleDateChange = (date) => {
+    setDate(date);
+  };
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DemoContainer
@@ -25,10 +36,8 @@ const DatePickerUI = () => {
         <MobileDatePicker
           className="Picker"
           format="DD / MM / YYYY"
-          defaultValue={formatDay}
-          onChange={(e) => {
-            setDate(new Date(e));
-          }}
+          value={Cdate}
+          onChange={handleDateChange}
         />
       </DemoContainer>
     </LocalizationProvider>

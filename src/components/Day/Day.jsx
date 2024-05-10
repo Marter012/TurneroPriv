@@ -18,7 +18,7 @@ const Day = ({ day, nextDay, activeDay, shiftsDay }) => {
         {shiftsDay.map((item) => {
           return (
             <>
-              <ShiftDay>
+              <ShiftDay key={item.name}>
                 <p>{item.name}</p>
                 <span>{item.schedule}</span>
               </ShiftDay>

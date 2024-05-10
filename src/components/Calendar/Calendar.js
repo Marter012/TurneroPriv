@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import Calendar from "https://cdn.skypack.dev/react-calendar@4.0.0";
-import { useDispatch } from "react-redux";
-import { WrapperCalendar } from "./CalendarStyles";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  CalendarMenu,
+  CalendarMenuItems,
+  ContainerMontserrat,
+  WrapperCalendar,
+} from "./CalendarStyles";
 import { SelectDay } from "../../redux/SelectedDay/SelectedDaySlice";
 import dayjs from "dayjs";
+import { ModalOverlayStyled } from "../Header/HeaderStyles";
+import { toggleHiddenCalendar } from "../../redux/CalendarMenu/CalendarMenuSlice";
+import { FaCalendarAlt } from "react-icons/fa";
 
 const MontserratCalendar = () => {
   const [date, setDate] = useState(new Date());
   const dispatch = useDispatch();
-
   dispatch(SelectDay(dayjs(date)));
   return (
     <Calendar
@@ -24,10 +31,35 @@ const MontserratCalendar = () => {
 };
 
 const Calendar1 = ({ mobileState }) => {
-  console.log(mobileState);
+  const hiddenCalendar = useSelector((state) => state.calendarMenu.hidden);
+  const dispatch = useDispatch();
+  const title = "CALENDARIO";
   return (
     <WrapperCalendar mobileState={mobileState}>
-      <MontserratCalendar />
+      {hiddenCalendar && (
+        <ModalOverlayStyled
+          onClick={() => dispatch(toggleHiddenCalendar(!hiddenCalendar))}
+          hiddenMenu={!hiddenCalendar}
+          s_zIndex={"6"}
+        />
+      )}
+
+      <ContainerMontserrat hiddenCalendar={!hiddenCalendar}>
+        <MontserratCalendar hiddenCalendar={hiddenCalendar} />
+      </ContainerMontserrat>
+
+      <CalendarMenu
+        onClick={() => {
+          dispatch(toggleHiddenCalendar(hiddenCalendar));
+        }}
+      >
+        <CalendarMenuItems>
+          {title.split("").map((item) => {
+            return <p>{item}</p>;
+          })}
+        </CalendarMenuItems>
+        {<FaCalendarAlt />}
+      </CalendarMenu>
     </WrapperCalendar>
   );
 };

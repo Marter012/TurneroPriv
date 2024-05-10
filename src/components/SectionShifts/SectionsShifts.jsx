@@ -8,13 +8,12 @@ import NavShists from "../NavShists/NavShists";
 export let actividades
 
 const SectionsShifts = ({mobileState}) => {
-  console.log(mobileState)
 
   return (
     <WrapperShifts mobileState={mobileState}>
       <NavShists/>      
-      <ListShifts />
       <ActionsShifts/>
+      <ListShifts />
     </WrapperShifts>
   );
 };

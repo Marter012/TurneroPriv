@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-evenly;
   position: absolute;
   align-items: center;
-  ${({ hiddenMenu }) => (hiddenMenu ? "top: 0px;" : "top: -300px;")}
+  top: ${({ hiddenMenu }) => (hiddenMenu ? "0px;" : "-300px;")};
   transition-duration: 0.5s;
 
   p:hover {
@@ -24,12 +24,8 @@ export const HeaderItem = styled.p`
   width: 25%;
   height: 60%;
   border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   transition-duration: 1s;
-  font-size: 1.5rem;
-  cursor: pointer;
 
   ${({ activePage }) =>
     activePage
@@ -37,6 +33,13 @@ export const HeaderItem = styled.p`
       : "background-color: rgb(250,250,250,0.3);"}
 
   a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
     color: white;
     text-decoration: none;
   }
@@ -51,16 +54,18 @@ export const HeaderItem = styled.p`
 `;
 
 export const ModalOverlayStyled = styled(motion.div)`
+  display: flex;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: +11;
+  z-index: ${({ s_zIndex }) => (s_zIndex ? s_zIndex : "+11;")};
   width: 100vw;
   height: 100vh;
 
-  ${({ isHidden }) =>
-    !isHidden &&
+  ${({ hiddenMenu }) =>
+    !hiddenMenu &&
     css`
       backdrop-filter: blur(4px);
+      background-color: rgb(0, 0, 0, 0.4);
     `}
 `;

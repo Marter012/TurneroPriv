@@ -7,13 +7,17 @@ import HeaderItemsReducer from "./HeaderItems/HeaderItemsSlice";
 import NavShiftsReducer from "./NavShifts/NavShiftsSlicer";
 import SelectedDayReducer from "./SelectedDay/SelectedDaySlice";
 import ShiftsReducer from "./Shifts/ShiftsSlice";
+import CalendarMenuReducer from "./CalendarMenu/CalendarMenuSlice";
+import GetShiftsReducer from "./GetShifts/GetShiftsSlice";
 
 const reducers = combineReducers({
-  shifts : ShiftsReducer,
-  burgerMenu : BurgerMenuReducer,
-  selectedItem : HeaderItemsReducer,
-  selectedShifts : NavShiftsReducer,
-  selectDay : SelectedDayReducer
+  shifts: ShiftsReducer,
+  burgerMenu: BurgerMenuReducer,
+  selectedItem: HeaderItemsReducer,
+  selectedShifts: NavShiftsReducer,
+  selectDay: SelectedDayReducer,
+  calendarMenu: CalendarMenuReducer,
+  getShifts: GetShiftsReducer,
 });
 
 const persistConfig = {

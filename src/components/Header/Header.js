@@ -1,42 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   HeaderContainer,
   HeaderItem,
   ModalOverlayStyled,
 } from "./HeaderStyles";
-import { useSelector, useDispatch } from "react-redux";
-import { toggleHiddenMenu } from "../../redux/BurgerMenu/BurgerMenuSlice";
-import { categoriesHeader } from "../../utils/categoriesHeader";
-import { selectItem } from "../../redux/HeaderItems/HeaderItemsSlice";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaList } from "react-icons/fa6";
+import { MdRequestPage } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+import { useDispatch, useSelector } from "react-redux";
+import { toggleHiddenMenu } from "../../redux/BurgerMenu/BurgerMenuSlice";
 
 const Header = () => {
   const hiddenMenu = useSelector((state) => state.burgerMenu.hidden);
   const dispatch = useDispatch();
-
-  const selecItem = useSelector((state) => state.selectedItem.selectedItem);
-
   return (
     <>
       {hiddenMenu && (
         <ModalOverlayStyled
-          onClick={() => dispatch(toggleHiddenMenu(hiddenMenu))}
-          isHidden={!hiddenMenu}
+          onClick={() => dispatch(toggleHiddenMenu(!hiddenMenu))}
+          hiddenMenu={!hiddenMenu}
         />
       )}
       <HeaderContainer hiddenMenu={hiddenMenu}>
-        {categoriesHeader.map(({ name, route }) => {
-          return (
-            <HeaderItem
-              onClick={() => dispatch(selectItem(name))}
-              $activePage={name === selecItem}
-              key={name}
-            >
-              <Link to={route}>{name}</Link>
-            </HeaderItem>
-          );
-        })}
+        <HeaderItem>
+          <Link to={"/"}>
+            <FaCalendarAlt />
+          </Link>
+        </HeaderItem>
+        <HeaderItem>
+          <Link to={"/semanal"}>
+            <FaList />
+          </Link>
+        </HeaderItem>
+        <HeaderItem>
+          <Link to={"/cobros"}>
+            <MdRequestPage />
+          </Link>
+        </HeaderItem>
       </HeaderContainer>
     </>
   );

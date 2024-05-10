@@ -8,6 +8,8 @@ const Button = ({
   s_position,
   s_border_radius,
   s_padding,
+  s_height,
+  s_width,
 }) => {
   return (
     <ButtonStyles
@@ -16,6 +18,8 @@ const Button = ({
       s_position={s_position}
       s_border_radius={s_border_radius}
       s_padding={s_padding}
+      s_height={s_height}
+      s_width={s_width}
     >
       {children}
     </ButtonStyles>

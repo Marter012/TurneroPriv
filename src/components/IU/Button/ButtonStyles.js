@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
 export const ButtonStyles = styled.button`
+  width: ${({ s_width }) => (s_width ? s_width : "")};
+  height: ${({ s_height }) => (s_height ? s_height : "")};
   padding: ${({ s_padding }) => (s_padding ? s_padding : "0px")};
   border: none;
   border-radius: ${({ s_border_radius }) =>
@@ -9,7 +11,7 @@ export const ButtonStyles = styled.button`
   cursor: pointer;
 
   position: ${({ s_position }) => (s_position ? s_position : "")};
- 
+
   right: -2.5%;
   a {
     color: black;

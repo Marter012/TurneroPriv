@@ -2,7 +2,7 @@ import React from "react";
 import { SemanalContainer, SemanalWrapper } from "./SemanalStyles";
 import Day from "../../components/Day/Day";
 import { dayWeeks } from "../../utils/daysWeek";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import dayjs from "dayjs";
 import DatePickerUI from "../../components/DatePicker/DatePicker";
@@ -12,6 +12,7 @@ const Semanal = () => {
   const selectedDay = useSelector((state) => state.selectDay.day);
   useActiveGetShifts();
   const shifts = useSelector((state) => state.shifts.listShifts);
+
   console.log(shifts);
   return (
     <SemanalWrapper>

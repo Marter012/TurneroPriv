@@ -7,13 +7,16 @@ import Submit from "../IU/Submit/Submit";
 import { addShiftsInitialValues } from "../Formik/InitialValues";
 import { ShiftsValidationSchema } from "../Formik/ValidationSchema";
 import { createShift } from "../../axios/axiosShifts";
-import { selectedNavShifts } from "../../redux/NavShifts/NavShiftsSlicer";
+import Loader from "../Loader/Loader";
+import { activeGet } from "../../redux/GetShifts/GetShiftsSlice";
+import { SelectDay } from "../../redux/SelectedDay/SelectedDaySlice";
+import dayjs from "dayjs";
 
 const ActionsShifts = () => {
   const selectedNav = useSelector((state) => state.selectedShifts.selected);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   return (
-    <ContainerActionShifts selected={selectedNav === 2}>
+    <ContainerActionShifts selectedNav={selectedNav === 2}>
       <Formik
         initialValues={addShiftsInitialValues}
         validationSchema={ShiftsValidationSchema}
@@ -32,20 +35,25 @@ const ActionsShifts = () => {
             phone,
             activity
           );
+          dispatch(SelectDay(dayjs(date)));
+          dispatch(activeGet());
           resetForm();
-          dispatch(selectedNavShifts(1))
         }}
       >
-        <Form>
-          <Input name="date" type="date" placeholder="Fecha" />
-          <Input name="schedule" type="time" placeholder="Horario" />
-          <Input name="name" type="text" placeholder="Nombre y Apellido" />
-          <Input name="price" type="number" placeholder="Precio" />
-          <Input name="location" type="text" placeholder="Lugar" />
-          <Input name="phone" type="number" placeholder="Celular" />
-          <Input name="activity" type="text" />
-          <Submit type="button">Cargar Turno</Submit>
-        </Form>
+        {({ isSubmitting }) => (
+          <Form>
+            <Input name="date" type="date" placeholder="Fecha" />
+            <Input name="schedule" type="time" placeholder="Horario" />
+            <Input name="name" type="text" placeholder="Nombre y Apellido" />
+            <Input name="price" type="number" placeholder="Precio" />
+            <Input name="location" type="text" placeholder="Lugar" />
+            <Input name="phone" type="number" placeholder="Celular" />
+            <Input name="activity" type="text" />
+            <Submit s_width={"200px"} s_height={"50px"} type="button">
+              {isSubmitting ? <Loader /> : "Cargar Turno"}
+            </Submit>
+          </Form>
+        )}
       </Formik>
     </ContainerActionShifts>
   );
