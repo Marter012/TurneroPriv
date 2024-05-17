@@ -26,7 +26,6 @@ export const useActiveGetShifts = (selectDay, setlett) => {
         );
         setlett(response);
         console.log(response);
-        return;
       }
       dispatch(addShifts(response.filter((item) => item.state === true)));
       console.log(response.filter((item) => item.state === true));

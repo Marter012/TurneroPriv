@@ -36,7 +36,6 @@ export const InputStyles = styled.input`
   @media (max-width: 460px) {
     width: 200px;
   }
-
 `;
 export const ErrorMessageStyles = styled.p`
   margin: 0;
@@ -53,3 +52,4 @@ export const ErrorMessageStyles = styled.p`
     width: 100%;
   }
 `;
+

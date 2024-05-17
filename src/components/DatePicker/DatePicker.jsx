@@ -8,9 +8,8 @@ import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import "./DatePickerStyles.css";
 import { SelectDay } from "../../redux/SelectedDay/SelectedDaySlice";
 
-const DatePickerUI = () => {
+const DatePickerUI = ({formatDate = "DD / MM / YYYY"}) => {
   const selectedDay = useSelector((state) => state.selectDay.day);
-
   const [Cdate, setDate] = useState(dayjs(selectedDay));
   const dispatch = useDispatch();
 
@@ -35,7 +34,7 @@ const DatePickerUI = () => {
       >
         <MobileDatePicker
           className="Picker"
-          format="DD / MM / YYYY"
+          format={formatDate}
           value={Cdate}
           onChange={handleDateChange}
         />

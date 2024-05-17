@@ -16,14 +16,14 @@ const NavShists = () => {
           dispatch(selectedNavShifts(1));
         }}
       >
-        Observar dia {formatDay}
+        Observar dia <br /> {formatDay}
       </ButtonStyles>
       <ButtonStyles
         onClick={() => {
           dispatch(selectedNavShifts(2));
         }}
       >
-        Agendar dia {formatDay}
+        Agendar dia <br /> {formatDay}
       </ButtonStyles>
     </ContainerNavShifts>
   );

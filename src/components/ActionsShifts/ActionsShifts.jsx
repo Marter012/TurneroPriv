@@ -35,6 +35,7 @@ const ActionsShifts = () => {
             phone,
             activity
           );
+          console.log(shift)
           dispatch(SelectDay(dayjs(date)));
           dispatch(activeGet());
           resetForm();

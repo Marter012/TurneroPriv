@@ -57,28 +57,24 @@ export const CalendarMenu = styled.div`
 
 export const CalendarMenuItems = styled.div`
   width: 60px;
-  height: 100vh;
+  height: 80vh;
+  position: absolute;
+  top: 10vh;
   justify-content: space-around;
   background-color: rgb(250, 250, 250, 0.5);
   align-items: center;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
   z-index: +8;
   left: -1%;
   color: white;
   p {
     margin: 0;
   }
-  @media (max-width: 1024px) {
-    height: 80vh;
-    top: 10vh;
-  }
   @media (max-width: 768px) {
-    height: 80vh;
-    top: 10vh;
+    height: 75vh;
+    top: 12vh;
   }
   @media (max-width: 460px) {
     display: none;

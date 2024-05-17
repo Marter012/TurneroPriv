@@ -12,6 +12,7 @@ export const ButtonStyles = styled.button`
 
   position: ${({ s_position }) => (s_position ? s_position : "")};
 
+  &&:focus { outline: none; } 
   right: -2.5%;
   a {
     color: black;

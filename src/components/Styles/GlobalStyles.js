@@ -21,6 +21,9 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-tap-highlight-color: transparent;
     overflow-x: hidden;
     background-image: url("https://res.cloudinary.com/dsgcmsjv4/image/upload/v1710274557/Turnero/xhmpttoa7n8qgppc6pzn.jpg");
+    background-repeat :no-repeat;
+    background-size: cover;
     }
 
 `
+
