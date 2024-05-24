@@ -7,6 +7,7 @@ export const ContainerDay = styled.div`
   text-align: center;
   overflow: hidden;
   border: 1px solid black;
+  
   background-color: ${({ activeDay }) =>
     activeDay ? "rgb(200, 150, 160)" : "rgb(200, 150, 160, 0.5)"};
 
@@ -28,6 +29,7 @@ export const ContainerDayWeek = styled.div`
   height: 10%;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   background-color: ${({ activeDay }) =>
     activeDay ? "rgb(250,250,250)" : "rgb(250,250,250,0.5)"};
   h3,
@@ -55,16 +57,18 @@ export const ContainerShifts = styled.div`
 
 export const ShiftDay = styled.div`
   width: 90%;
+  height: 50px;
   background-color: beige;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  cursor: pointer;
   align-items: center;
   p,
   span {
     margin: 0%;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 
   @media (max-width: 768px) {

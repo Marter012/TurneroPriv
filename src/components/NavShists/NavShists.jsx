@@ -2,8 +2,8 @@ import React from "react";
 import { ContainerNavShifts } from "./NavShistsStyles";
 import { ButtonStyles } from "../IU/Button/ButtonStyles";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedNavShifts } from "../../redux/NavShifts/NavShiftsSlicer";
 import dayjs from "dayjs";
+import { selectedNavShifts } from "../../redux/SelectedShifts/SelectedShifts";
 
 const NavShists = () => {
   const selectedDay = useSelector((state) => state.selectDay.day);
@@ -23,7 +23,7 @@ const NavShists = () => {
           dispatch(selectedNavShifts(2));
         }}
       >
-        Agendar dia <br /> {formatDay}
+        Agendar Turno
       </ButtonStyles>
     </ContainerNavShifts>
   );

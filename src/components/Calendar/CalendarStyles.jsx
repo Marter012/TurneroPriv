@@ -39,10 +39,9 @@ export const ContainerMontserrat = styled.div`
 `;
 
 export const CalendarMenu = styled.div`
-  i {
-    display: none;
+  svg{
+    display : none;
   }
-
   @media (max-width: 460px) {
     position: absolute;
     left: 0;
@@ -50,8 +49,9 @@ export const CalendarMenu = styled.div`
     z-index: +8;
     bottom: 0;
     color: white;
-    i {
-    }
+    svg{
+    display : flex;
+  }
   }
 `;
 

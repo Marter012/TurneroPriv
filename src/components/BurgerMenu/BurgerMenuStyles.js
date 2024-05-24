@@ -7,7 +7,7 @@ export const BurgerMenuContainer = styled.div`
   cursor: pointer;
   right: 15px;
   top: 15px;
-  z-index: +12;
+  z-index: +100;
   overflow: hidden;
   animation: ${({ activeMenu }) =>
     activeMenu ? "activeRotate 1s" : "inhactiveRotate"};

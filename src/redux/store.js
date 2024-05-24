@@ -4,18 +4,20 @@ import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import BurgerMenuReducer from "./BurgerMenu/BurgerMenuSlice";
 import HeaderItemsReducer from "./HeaderItems/HeaderItemsSlice";
-import NavShiftsReducer from "./NavShifts/NavShiftsSlicer";
 import SelectedDayReducer from "./SelectedDay/SelectedDaySlice";
 import ShiftsReducer from "./Shifts/ShiftsSlice";
 import CalendarMenuReducer from "./CalendarMenu/CalendarMenuSlice";
 import GetShiftsReducer from "./GetShifts/GetShiftsSlice";
+import SelectedShiftsReducer from "./SelectedShifts/SelectedShifts";
+import UpdateShiftReducer from "./UpdateShift/UpdateShiftSlice";
 
 const reducers = combineReducers({
   shifts: ShiftsReducer,
   burgerMenu: BurgerMenuReducer,
   selectedItem: HeaderItemsReducer,
-  selectedShifts: NavShiftsReducer,
+  selectedShifts: SelectedShiftsReducer,
   selectDay: SelectedDayReducer,
+  updateShift: UpdateShiftReducer,
   calendarMenu: CalendarMenuReducer,
   getShifts: GetShiftsReducer,
 });

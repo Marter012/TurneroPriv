@@ -22,7 +22,7 @@ export const ListShiftsContainer = styled.div`
   width: 95%;
   height: 80%;
   display: flex;
-  padding-top: 10px;
+  padding-top: 15px;
   flex-direction: column;
   justify-content: start;
 

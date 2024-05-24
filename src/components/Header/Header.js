@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   HeaderContainer,
   HeaderItem,
@@ -20,6 +20,7 @@ const Header = () => {
         <ModalOverlayStyled
           onClick={() => dispatch(toggleHiddenMenu(!hiddenMenu))}
           hiddenMenu={!hiddenMenu}
+          s_zIndex={99}
         />
       )}
       <HeaderContainer hiddenMenu={hiddenMenu}>

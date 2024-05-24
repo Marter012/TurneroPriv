@@ -6,6 +6,7 @@ export const SemanalWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
   align-items: center;
 `;
 

@@ -25,6 +25,8 @@ const ActionsShifts = () => {
             values;
 
           let category = "shifts";
+
+          //eslint-disable-next-line
           const shift = await createShift(
             category,
             date,
@@ -35,7 +37,6 @@ const ActionsShifts = () => {
             phone,
             activity
           );
-          console.log(shift)
           dispatch(SelectDay(dayjs(date)));
           dispatch(activeGet());
           resetForm();
@@ -43,13 +44,15 @@ const ActionsShifts = () => {
       >
         {({ isSubmitting }) => (
           <Form>
+            {/* VER VALUE ONCHANGE DESDE EL INPUT */}
+            {/* VER PLACEHOLDER DE DATE Y SCHEDULE */}
             <Input name="date" type="date" placeholder="Fecha" />
             <Input name="schedule" type="time" placeholder="Horario" />
             <Input name="name" type="text" placeholder="Nombre y Apellido" />
             <Input name="price" type="number" placeholder="Precio" />
             <Input name="location" type="text" placeholder="Lugar" />
             <Input name="phone" type="number" placeholder="Celular" />
-            <Input name="activity" type="text" />
+            <Input name="activity" type="text" placeholder="Actividades" />
             <Submit s_width={"200px"} s_height={"50px"} type="button">
               {isSubmitting ? <Loader /> : "Cargar Turno"}
             </Submit>

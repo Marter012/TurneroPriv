@@ -5,12 +5,25 @@ import {
   ContainerShifts,
   ShiftDay,
 } from "./DayStyles";
+import { useDispatch } from "react-redux";
+import {
+  selectedShift,
+  toggleShifts,
+} from "../../redux/SelectedShifts/SelectedShifts";
+import { SelectDay } from "../../redux/SelectedDay/SelectedDaySlice";
+import dayjs from "dayjs";
 
 const Day = ({ day, nextDay, activeDay, shiftsDay }) => {
   const formateDate = `${nextDay.split("-")[2]}-${nextDay.split("-")[1]}`;
+  const dispatch = useDispatch();
+
+  const updateShiftSelected = (item) => {
+    dispatch(selectedShift(item));
+    dispatch(toggleShifts());
+  };
   return (
     <ContainerDay activeDay={activeDay}>
-      <ContainerDayWeek>
+      <ContainerDayWeek onClick={(e) => dispatch(SelectDay(dayjs(nextDay)))}>
         <h3>{day}</h3>
         <p>{formateDate}</p>
       </ContainerDayWeek>
@@ -18,8 +31,13 @@ const Day = ({ day, nextDay, activeDay, shiftsDay }) => {
         {shiftsDay.map((item) => {
           return (
             <>
-              <ShiftDay key={item.name}>
-                <p>{item.name}</p>
+              <ShiftDay
+                onClick={() => {
+                  updateShiftSelected(item);
+                }}
+                key={item.name}
+              >
+                <p>{item.name.split(" ")[0].toUpperCase()}</p>
                 <span>{item.schedule}</span>
               </ShiftDay>
             </>

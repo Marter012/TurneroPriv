@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Calendar from "https://cdn.skypack.dev/react-calendar@4.0.0";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -16,7 +16,11 @@ import { FaCalendarAlt } from "react-icons/fa";
 const MontserratCalendar = () => {
   const [date, setDate] = useState(new Date());
   const dispatch = useDispatch();
-  dispatch(SelectDay(dayjs(date)));
+  useEffect(() => {
+    dispatch(SelectDay(dayjs(date)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [date]);
+
   return (
     <Calendar
       formatShortWeekday={(locale, dateValue) =>
@@ -58,7 +62,7 @@ const Calendar1 = ({ mobileState }) => {
             return <p>{item}</p>;
           })}
         </CalendarMenuItems>
-        {<FaCalendarAlt />}
+        <FaCalendarAlt />
       </CalendarMenu>
     </WrapperCalendar>
   );

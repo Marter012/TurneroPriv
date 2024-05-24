@@ -8,6 +8,8 @@ export const useActiveGetShifts = (selectDay, setlett) => {
   const dispatch = useDispatch();
   const activeGetShifts = useSelector((state) => state.getShifts.hidden);
   const selectedDay = useSelector((state) => state.selectDay.day);
+
+  console.log(activeGetShifts);
   console.log("entro en useative");
 
   useEffect(() => {
@@ -15,6 +17,8 @@ export const useActiveGetShifts = (selectDay, setlett) => {
 
     const ho = async () => {
       const response = await getShifts("shifts");
+      console.log(response);
+
       if (selectDay !== undefined) {
         const formatDate = dayjs(selectDay).format("YYYY-MM-DD");
         dispatch(

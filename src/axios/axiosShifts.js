@@ -48,6 +48,35 @@ export const updateStateShifts = async (code) => {
     });
     return { response: response };
   } catch (error) {
+    console.log(error);
+    return error.response.data?.errors?.errors[0].msg;
+  }
+};
+
+export const updateShifts = async (
+  code,
+  date,
+  schedule,
+  name,
+  price,
+  location,
+  phone,
+  activity
+) => {
+  try {
+    const response = await axios.post(`${BASE_URL}/auth/updateShifts`, {
+      code,
+      date,
+      schedule,
+      name,
+      price,
+      location,
+      phone,
+      activity,
+    });
+    return { response: response };
+  } catch (error) {
+    console.log(error);
     return error.response.data?.errors?.errors[0].msg;
   }
 };

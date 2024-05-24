@@ -9,11 +9,17 @@ export const ButtonStyles = styled.button`
     s_border_radius ? s_border_radius : "10px"};
   background-color: ${({ bg_color }) => (bg_color ? bg_color : "transparent")};
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   position: ${({ s_position }) => (s_position ? s_position : "")};
+  top: ${({ s_top }) => (s_top ? s_top : "")};
+  right: ${({ s_rigth }) => (s_rigth ? s_rigth : "")};
 
-  &&:focus { outline: none; } 
-  right: -2.5%;
+  &&:focus {
+    outline: none;
+  }
   a {
     color: black;
     text-decoration: none;

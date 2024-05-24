@@ -4,10 +4,18 @@ import { ButtonStyles } from "../IU/Button/ButtonStyles";
 import { updateStateShifts } from "../../axios/axiosShifts";
 
 import { useDispatch } from "react-redux";
-import { toggleNavShifts } from "../../redux/NavShifts/NavShiftsSlicer";
 import Loader from "../Loader/Loader";
 import { activeGet } from "../../redux/GetShifts/GetShiftsSlice";
-const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
+import { selectedShift, toggleNavShifts, toggleShifts } from "../../redux/SelectedShifts/SelectedShifts";
+
+import { GrDocumentUpdate } from "react-icons/gr";
+import { MdDeleteForever } from "react-icons/md";
+import { FaEye } from "react-icons/fa";
+
+import { selectedShiftUpdate, toggleShiftsUpdate } from "../../redux/UpdateShift/UpdateShiftSlice";
+
+const Shifts = ({ date , schedule, name, price, location, phone, activity, code }) => {
+
   let activities = activity.split(",");
   const dispatch = useDispatch();
   const [activeLoader, setActiveLoader] = useState(false);
@@ -19,34 +27,47 @@ const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
       dispatch(toggleNavShifts());
       dispatch(activeGet());
     }, 500);
-    console.log("hola");
   };
+
+  const updateShift = () => {
+    dispatch(toggleShiftsUpdate());
+    dispatch(selectedShiftUpdate({date, schedule, name, price, location, phone, activity, code }))
+  }
+
+  const showCard = (item) => {
+    dispatch(selectedShift(item));
+    dispatch(toggleShifts());
+  }
 
   return (
     <ShiftsCard>
-      <ShiftsCardColumn column="one">
-        <p>{schedule}</p>
-      </ShiftsCardColumn>
-      <ShiftsCardColumn column="two">
+      <ShiftsCardColumn className="two">
         <h2>
           {name.toLowerCase().replace(/\b\w/g, function (l) {
             return l.toUpperCase();
           })}
         </h2>
       </ShiftsCardColumn>
-      <ShiftsCardColumn column="tree">
+      <ShiftsCardColumn className="one">
+        <p>{schedule} hs</p>
+      </ShiftsCardColumn>
+      <ShiftsCardColumn className="tree">
         <p>${price}</p>
       </ShiftsCardColumn>
-      <ShiftsCardColumn column="four">
-        <p>{location.toUpperCase()}</p>
+      <ShiftsCardColumn className="four">
+        <p>{location.toLowerCase().replace(/\b\w/g, function (l) {
+            return l.toUpperCase();
+          })}</p>
       </ShiftsCardColumn>
 
-      <ShiftsCardColumn column="five">
+      <ShiftsCardColumn className="five">
         {activities.map((item) => {
-          return <span>{item}</span>;
+          return <span>{item.toLowerCase().replace(/\b\w/g, function (l) {
+            return l.toUpperCase();
+          })}</span>;
         })}
       </ShiftsCardColumn>
-      <ShiftsCardColumn column="six">
+      <ShiftsCardColumn className="six">
         <ButtonStyles s_padding={"5px 15px 5px 15px"} bg_color="green">
           <a
             href={`https://api.whatsapp.com/send/?phone=${phone}&text=Hola ${name
@@ -66,9 +87,37 @@ const Shifts = ({ schedule, name, price, location, phone, activity, code }) => {
         s_height="30px"
         s_width="30px"
         s_border_radius="50%"
+        s_top="5%"
+        s_rigth="-30px"
         onClick={cancelShift}
       >
-        {activeLoader ? <Loader /> : "x"}
+        {activeLoader ? <Loader /> : <MdDeleteForever />}
+      </ButtonStyles>
+
+      <ButtonStyles
+        bg_color="#99ee99"
+        s_position="absolute"
+        s_height="30px"
+        s_width="30px"
+        s_border_radius="50%"
+        s_top="37%"
+        s_rigth="-30px"
+        onClick={()=>updateShift()}
+      >
+        <GrDocumentUpdate />
+      </ButtonStyles>
+
+      <ButtonStyles
+        bg_color="pink"
+        s_position="absolute"
+        s_height="30px"
+        s_width="30px"
+        s_border_radius="50%"
+        s_top="70%"
+        s_rigth="-30px"
+        onClick={()=>showCard({ date , schedule, name, price, location, phone, activity, code })}
+      >
+        <FaEye />
       </ButtonStyles>
     </ShiftsCard>
   );
