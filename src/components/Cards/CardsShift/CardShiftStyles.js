@@ -40,7 +40,7 @@ export const ContainerCardShift = styled.div`
       margin-top: 10px;
       gap: 10px;
       span {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
         margin: 0;
         padding: 0px 20px 0px 20px;
         background-color: #ea90ff;

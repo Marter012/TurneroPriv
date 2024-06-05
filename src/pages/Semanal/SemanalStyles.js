@@ -12,13 +12,13 @@ export const SemanalWrapper = styled.div`
 
 export const SemanalContainer = styled.div`
   width: 80vw;
-  height: 80%;
+  min-height: 80%;
   background-color: rgb(250, 250, 250, 0.3);
   display: flex;
   padding: 15px;
   border-radius: 30px;
   gap: 10px;
-
+  overflow: hidden;
   @media (max-width: 768px) {
     width: 90vw;
   }

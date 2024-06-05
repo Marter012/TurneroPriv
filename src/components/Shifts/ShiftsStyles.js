@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ShiftsCard = styled.div`
   position: relative;
   width: 80%;
-  height: 100px;
+  min-height: 100px;
   background-color: rgb(250, 250, 250, 0.8);
   display: grid;
   grid-template-columns: 50% 50%;
