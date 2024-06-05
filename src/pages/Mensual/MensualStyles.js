@@ -7,6 +7,7 @@ export const MensualContainer = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
+  background-color: blue;
 
   @media (max-width: 768px) {
     transition-duration: 1s;
