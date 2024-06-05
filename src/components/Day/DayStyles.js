@@ -45,8 +45,8 @@ export const ContainerShifts = styled.div`
   justify-content: start;
   align-items: center;
   gap: 10px;
-  overflow: hidden;
   overflow: scroll;
+  scrollbar-width: none;
 `;
 
 export const ShiftDay = styled.div`

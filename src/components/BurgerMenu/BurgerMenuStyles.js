@@ -9,7 +9,6 @@ export const BurgerMenuContainer = styled.div`
   right: 0;
   top: 5px;
   z-index: +100;
-  overflow: hidden;
   transition-duration: 1s;
   div {
     rotate: ${({ activeMenu }) => (activeMenu ? "270deg" : "0deg")};

@@ -24,14 +24,3 @@ export const Form = styled(FormikForm)`
   justify-content: space-evenly;
   align-items: center;
 `;
-
-export const ContainerPickerForm = styled.div`
-  display: flex;
-  scrollbar-color: transparent transparent;
-  width: 70%;
-  height: 60px;
-  overflow: hidden;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid white;
-`
