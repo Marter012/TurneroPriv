@@ -25,26 +25,13 @@ export const Form = styled(FormikForm)`
   align-items: center;
 `;
 
-export const ActionAddShifts = styled.div`
+export const ContainerPickerForm = styled.div`
   display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-  width: 100%;
-  background-color: red;
-  position: relative;
-  span {
-    color: white;
-    width: 2rem;
-    height: 2rem;
-    right: -40px;
-    position: absolute;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-`;
-
-export const ActionsShiftsActivities = styled.div`
-  width: 100%;
-  display: flex;
+  scrollbar-color: transparent transparent;
+  width: 70%;
+  height: 60px;
+  overflow: hidden;
   justify-content: space-around;
-`;
+  align-items: center;
+  border: 1px solid white;
+`
