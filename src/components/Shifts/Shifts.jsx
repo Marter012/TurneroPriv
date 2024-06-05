@@ -6,16 +6,31 @@ import { updateStateShifts } from "../../axios/axiosShifts";
 import { useDispatch } from "react-redux";
 import Loader from "../Loader/Loader";
 import { activeGet } from "../../redux/GetShifts/GetShiftsSlice";
-import { selectedShift, toggleNavShifts, toggleShifts } from "../../redux/SelectedShifts/SelectedShifts";
+import {
+  selectedShift,
+  toggleNavShifts,
+  toggleShifts,
+} from "../../redux/SelectedShifts/SelectedShifts";
 
 import { GrDocumentUpdate } from "react-icons/gr";
 import { MdDeleteForever } from "react-icons/md";
 import { FaEye } from "react-icons/fa";
 
-import { selectedShiftUpdate, toggleShiftsUpdate } from "../../redux/UpdateShift/UpdateShiftSlice";
+import {
+  selectedShiftUpdate,
+  toggleShiftsUpdate,
+} from "../../redux/UpdateShift/UpdateShiftSlice";
 
-const Shifts = ({ date , schedule, name, price, location, phone, activity, code }) => {
-
+const Shifts = ({
+  date,
+  schedule,
+  name,
+  price,
+  location,
+  phone,
+  activity,
+  code,
+}) => {
   let activities = activity.split(",");
   const dispatch = useDispatch();
   const [activeLoader, setActiveLoader] = useState(false);
@@ -24,29 +39,41 @@ const Shifts = ({ date , schedule, name, price, location, phone, activity, code 
     updateStateShifts(code);
     setTimeout(() => {
       setActiveLoader(true);
-      dispatch(toggleNavShifts());
+      dispatch(toggleNavShifts(false));
       dispatch(activeGet());
     }, 500);
   };
 
   const updateShift = () => {
-    dispatch(toggleShiftsUpdate());
-    dispatch(selectedShiftUpdate({date, schedule, name, price, location, phone, activity, code }))
-  }
+    dispatch(toggleShiftsUpdate(true));
+    dispatch(
+      selectedShiftUpdate({
+        date,
+        schedule,
+        name,
+        price,
+        location,
+        phone,
+        activity,
+        code,
+      })
+    );
+  };
 
   const showCard = (item) => {
     dispatch(selectedShift(item));
-    dispatch(toggleShifts());
-  }
+    dispatch(toggleShifts(true));
+  };
 
   return (
     <ShiftsCard>
       <ShiftsCardColumn className="two">
         <h2>
-          {name.toLowerCase().replace(/\b\w/g, function (l) {
+          {name.split(" ")[0].toUpperCase().replace(/\b\w/g, function (l) {
             return l.toUpperCase();
           })}
         </h2>
+
       </ShiftsCardColumn>
       <ShiftsCardColumn className="one">
         <p>{schedule} hs</p>
@@ -55,16 +82,22 @@ const Shifts = ({ date , schedule, name, price, location, phone, activity, code 
         <p>${price}</p>
       </ShiftsCardColumn>
       <ShiftsCardColumn className="four">
-        <p>{location.toLowerCase().replace(/\b\w/g, function (l) {
+        <p>
+          {location.toLowerCase().replace(/\b\w/g, function (l) {
             return l.toUpperCase();
-          })}</p>
+          })}
+        </p>
       </ShiftsCardColumn>
 
       <ShiftsCardColumn className="five">
         {activities.map((item) => {
-          return <span>{item.toLowerCase().replace(/\b\w/g, function (l) {
-            return l.toUpperCase();
-          })}</span>;
+          return (
+            <span>
+              {item.toLowerCase().replace(/\b\w/g, function (l) {
+                return l.toUpperCase();
+              })}
+            </span>
+          );
         })}
       </ShiftsCardColumn>
       <ShiftsCardColumn className="six">
@@ -102,7 +135,7 @@ const Shifts = ({ date , schedule, name, price, location, phone, activity, code 
         s_border_radius="50%"
         s_top="37%"
         s_rigth="-30px"
-        onClick={()=>updateShift()}
+        onClick={() => updateShift()}
       >
         <GrDocumentUpdate />
       </ButtonStyles>
@@ -115,7 +148,18 @@ const Shifts = ({ date , schedule, name, price, location, phone, activity, code 
         s_border_radius="50%"
         s_top="70%"
         s_rigth="-30px"
-        onClick={()=>showCard({ date , schedule, name, price, location, phone, activity, code })}
+        onClick={() =>
+          showCard({
+            date,
+            schedule,
+            name,
+            price,
+            location,
+            phone,
+            activity,
+            code,
+          })
+        }
       >
         <FaEye />
       </ButtonStyles>

@@ -18,7 +18,7 @@ export const ContainerDay = styled.div`
   }
 
   @media (max-width: 460px) {
-    min-width: 100px;
+    min-width: 150px;
   }
 `;
 

@@ -15,16 +15,18 @@ const BurgerMenu = () => {
   return (
     <BurgerMenuContainer
       onClick={() => {
-        dispatch(toggleHiddenMenu(!hiddenMenu))
+        dispatch(toggleHiddenMenu(!hiddenMenu));
       }}
       activeMenu={hiddenMenu}
     >
-      <ArrowBurger activeMenu={hiddenMenu}>
-        <FaArrowDown />
-      </ArrowBurger>
-      <ScissorsBurger activeMenu={hiddenMenu}>
-        <FaScissors />
-      </ScissorsBurger>
+      <div>
+        <ArrowBurger activeMenu={hiddenMenu}>
+          <FaArrowDown />
+        </ArrowBurger>
+        <ScissorsBurger activeMenu={hiddenMenu}>
+          <FaScissors />
+        </ScissorsBurger>
+      </div>
     </BurgerMenuContainer>
   );
 };

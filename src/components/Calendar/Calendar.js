@@ -16,6 +16,12 @@ import { FaCalendarAlt } from "react-icons/fa";
 const MontserratCalendar = () => {
   const [date, setDate] = useState(new Date());
   const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(SelectDay(dayjs(date)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     dispatch(SelectDay(dayjs(date)));
     // eslint-disable-next-line react-hooks/exhaustive-deps

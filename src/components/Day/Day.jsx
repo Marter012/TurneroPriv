@@ -19,7 +19,7 @@ const Day = ({ day, nextDay, activeDay, shiftsDay }) => {
 
   const updateShiftSelected = (item) => {
     dispatch(selectedShift(item));
-    dispatch(toggleShifts());
+    dispatch(toggleShifts(true));
   };
   return (
     <ContainerDay activeDay={activeDay}>

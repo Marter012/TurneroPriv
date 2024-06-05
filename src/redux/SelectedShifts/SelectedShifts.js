@@ -16,17 +16,17 @@ export const SelectedShifts = createSlice({
         selected: actions.payload,
       };
     },
-    toggleNavShifts: (state) => {
+    toggleNavShifts: (state, actions) => {
       return {
         ...state,
-        hidden: !state.hidden,
+        hidden: actions ? actions.payload : !state.hidden,
       };
     },
 
-    toggleShifts: (state) => {
+    toggleShifts: (state,actions = true) => {
       return {
         ...state,
-        hidden: !state.hidden,
+        hidden: actions ? actions.payload : !state.hidden,
       };
     },
     selectedShift: (state, actions) => {
@@ -38,7 +38,11 @@ export const SelectedShifts = createSlice({
   },
 });
 
-export const { toggleNavShifts, selectedNavShifts, toggleShifts,selectedShift } =
-  SelectedShifts.actions;
+export const {
+  toggleNavShifts,
+  selectedNavShifts,
+  toggleShifts,
+  selectedShift,
+} = SelectedShifts.actions;
 
 export default SelectedShifts.reducer;

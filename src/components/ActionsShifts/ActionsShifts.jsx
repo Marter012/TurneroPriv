@@ -11,6 +11,7 @@ import Loader from "../Loader/Loader";
 import { activeGet } from "../../redux/GetShifts/GetShiftsSlice";
 import { SelectDay } from "../../redux/SelectedDay/SelectedDaySlice";
 import dayjs from "dayjs";
+import { selectedNavShifts } from "../../redux/SelectedShifts/SelectedShifts";
 
 const ActionsShifts = () => {
   const selectedNav = useSelector((state) => state.selectedShifts.selected);
@@ -38,6 +39,7 @@ const ActionsShifts = () => {
             activity
           );
           dispatch(SelectDay(dayjs(date)));
+          dispatch(selectedNavShifts(1));
           dispatch(activeGet());
           resetForm();
         }}

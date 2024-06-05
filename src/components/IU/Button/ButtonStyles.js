@@ -16,6 +16,7 @@ export const ButtonStyles = styled.button`
   position: ${({ s_position }) => (s_position ? s_position : "")};
   top: ${({ s_top }) => (s_top ? s_top : "")};
   right: ${({ s_rigth }) => (s_rigth ? s_rigth : "")};
+  left: ${({ s_left }) => (s_left ? s_left : "")};
 
   &&:focus {
     outline: none;

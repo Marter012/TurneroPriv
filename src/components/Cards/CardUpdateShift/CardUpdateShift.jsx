@@ -15,6 +15,7 @@ import {
 import { SelectDay } from "../../../redux/SelectedDay/SelectedDaySlice";
 import dayjs from "dayjs";
 import { toggleShifts } from "../../../redux/SelectedShifts/SelectedShifts";
+import { ButtonStyles } from "../../IU/Button/ButtonStyles";
 
 const CardUpdateShift = (activatorUpdate) => {
   const shiftSelected = useSelector((state) => state.updateShift.shiftSelected);
@@ -53,13 +54,13 @@ const CardUpdateShift = (activatorUpdate) => {
               phone,
               activity
             );
-            
+
             setTimeout(() => {
               dispatch(selectedShiftUpdate(""));
               dispatch(SelectDay(dayjs(date)));
               resetForm();
-              dispatch(toggleShifts());
-              dispatch(toggleShiftsUpdate());
+              dispatch(toggleShifts(false));
+              dispatch(toggleShiftsUpdate(false));
             }, 1000);
           }}
         >
@@ -76,6 +77,18 @@ const CardUpdateShift = (activatorUpdate) => {
             </Submit>
           </Form>
         </Formik>
+        <ButtonStyles
+          bg_color="red"
+          s_position="absolute"
+          s_height="30px"
+          s_width="30px"
+          s_border_radius="50%"
+          s_top="10px"
+          s_left="10px"
+          onClick={() => dispatch(toggleShiftsUpdate())}
+        >
+          X
+        </ButtonStyles>
       </ContainerCardUpdateShift>
       <ModalOverlayStyled
         s_zIndex={12}

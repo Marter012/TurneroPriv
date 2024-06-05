@@ -1,34 +1,28 @@
 import styled from "styled-components";
 
 export const BurgerMenuContainer = styled.div`
+  width: 3em;
+  height: 3rem;
   position: absolute;
-  font-size: 2rem;
   color: white;
   cursor: pointer;
-  right: 15px;
-  top: 15px;
+  right: 0;
+  top: 5px;
   z-index: +100;
   overflow: hidden;
-  animation: ${({ activeMenu }) =>
-    activeMenu ? "activeRotate 1s" : "inhactiveRotate"};
   transition-duration: 1s;
-  rotate: ${({ activeMenu }) => (activeMenu ? "270deg" : "0deg")};
-
-  @keyframes activeRotate {
-    0% {
-      rotate: 0deg;
-    }
-    100% {
-      rotate: 270deg;
-    }
+  div {
+    rotate: ${({ activeMenu }) => (activeMenu ? "270deg" : "0deg")};
   }
-  @keyframes inhactiveRotate {
-    0% {
-      rotate: 270deg;
-    }
-    100% {
-      rotate: calc(270 * 2);
-    }
+  svg,
+  path {
+    font-size: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    top: auto !important;
+    bottom: 0;
+    right: 0;
   }
 `;
 
@@ -45,5 +39,4 @@ export const ScissorsBurger = styled.div`
   z-index: ${({ activeMenu }) => (activeMenu ? "0" : "1")};
   opacity: ${({ activeMenu }) => (activeMenu ? "0" : "1")};
   transition-duration: 1s;
-
 `;

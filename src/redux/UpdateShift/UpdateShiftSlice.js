@@ -9,10 +9,10 @@ export const UpdateShiftSlice = createSlice({
   name: "UpdateShift",
   initialState: INITIAL_STATE,
   reducers: {
-    toggleShiftsUpdate: (state) => {
+    toggleShiftsUpdate: (state,actions) => {
       return {
         ...state,
-        activator: !state.activator,
+        activator: actions.payload,
       };
     },
     selectedShiftUpdate: (state, actions) => {

@@ -38,12 +38,12 @@ export const ContainerCardShift = styled.div`
       grid-column: 1/3;
       grid-row: 5;
       margin-top: 10px;
+      gap: 10px;
       span {
         font-size: 1.5rem;
         margin: 0;
         padding: 0px 20px 0px 20px;
-        color: white;
-        background-color: rgb(0, 0, 0, 0.7);
+        background-color: #ea90ff;
         border-radius: 10px;
       }
     }
@@ -68,14 +68,33 @@ export const ContainerCardShift = styled.div`
   }
 
   @media (max-width: 780px) {
-    height: 80vh;
+    height: 80%;
+    width: 80%;
     grid-template-columns: 100%;
-    grid-template-rows: min-content;
+
     div {
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      border-bottom: 1px solid black;
+      .one,
+      .two,
+      .tree,
+      .four,
+      .five,
+      .six {
+        border-left: none;
+        border-bottom: 1px solid black;
+      }
+      .five {
+        width: 100%;
+        padding-bottom: 10px;
+        span {
+          width: 100%;
+          border-radius: 0;
+          padding: 0;
+          background-color: rgb(0, 0, 0, 0.5);
+        }
+      }
       :nth-child(6) {
         border: none;
       }
@@ -89,8 +108,8 @@ export const ContainerCardShift = styled.div`
       left: 0%;
     }
   }
+
   @media (max-width: 460px) {
-    height: 50vh;
     div {
       .one,
       .two,
