@@ -25,9 +25,6 @@ export const GlobalStyles = createGlobalStyle`
         background-image: url("https://res.cloudinary.com/dsgcmsjv4/image/upload/v1710274557/Turnero/xhmpttoa7n8qgppc6pzn.jpg");
         background-repeat :no-repeat;
         background-size: cover;
-        .sc-hVcFVo,.uEgWB{
-            width: 100vw;
-            height: 100vh;
-        }
+       
     }
 `;
