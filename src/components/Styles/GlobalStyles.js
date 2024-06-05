@@ -21,7 +21,7 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         font-family: 'Montserrat', sans-serif;
         -webkit-tap-highlight-color: transparent;
-        overflow-x: hidden;
+        overflow: hidden;
         background-image: url("https://res.cloudinary.com/dsgcmsjv4/image/upload/v1710274557/Turnero/xhmpttoa7n8qgppc6pzn.jpg");
         background-repeat :no-repeat;
         background-size: cover;
