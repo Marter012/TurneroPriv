@@ -13,8 +13,8 @@ export const ListShiftsWrapper = styled.div`
   @media (max-width: 768px) {
     display: ${({ selectedNav }) => (selectedNav ? "flex" : "none")};
     background-color: transparent;
-    margin-top: 5vh;
-    height: 95vh;
+    margin-top: 5%;
+    height: 95%;
   }
 `;
 

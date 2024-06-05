@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
     :root {
@@ -22,9 +22,14 @@ export const GlobalStyles = createGlobalStyle`
         position: relative;
         font-family: 'Montserrat', sans-serif;
         -webkit-tap-highlight-color: transparent;
-        background-image: url("https://res.cloudinary.com/dsgcmsjv4/image/upload/v1710274557/Turnero/xhmpttoa7n8qgppc6pzn.jpg");
-        background-repeat :no-repeat;
-        background-size: cover;
-       
     }
 `;
+
+export const FondImg = styled.img`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -50;
+    background-color: red;
+    object-fit: cover;
+`
