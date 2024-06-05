@@ -4,11 +4,8 @@ export const MensualContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: relative;
   width: 100vw;
-  height: 100vh;
-  background-color: blue;
-
+  height: 100%;
   @media (max-width: 768px) {
     transition-duration: 1s;
   }

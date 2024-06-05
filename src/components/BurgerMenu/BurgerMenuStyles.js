@@ -5,7 +5,6 @@ export const BurgerMenuContainer = styled.div`
   height: 3rem;
   position: absolute;
   color: white;
-  background-color: pink;
   cursor: pointer;
   right: 0;
   top: 5px;

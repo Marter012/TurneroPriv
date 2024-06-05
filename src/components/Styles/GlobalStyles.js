@@ -19,13 +19,12 @@ export const GlobalStyles = createGlobalStyle`
         height: 100vh;
         margin: 0;
         padding: 0;
+        position: relative;
         font-family: 'Montserrat', sans-serif;
         -webkit-tap-highlight-color: transparent;
         overflow: hidden;
         background-image: url("https://res.cloudinary.com/dsgcmsjv4/image/upload/v1710274557/Turnero/xhmpttoa7n8qgppc6pzn.jpg");
         background-repeat :no-repeat;
         background-size: cover;
-        background-color: red;
     }
-
 `;

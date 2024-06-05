@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SemanalWrapper = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,7 @@ export const SemanalWrapper = styled.div`
 
 export const SemanalContainer = styled.div`
   width: 80vw;
-  height: 80vh;
+  height: 80%;
   background-color: rgb(250, 250, 250, 0.3);
   display: flex;
   padding: 15px;
