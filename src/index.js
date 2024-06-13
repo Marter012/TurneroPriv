@@ -22,3 +22,8 @@ root.render(
     </Provider>
   </>
 );
+
+// OBSERVAR PANTALLA DE COBROS, TIJERA Y DATEPICKER PAGE SEMANAL 
+// CREAR LISTA DE CLIENTES FIJOS, EN 4 ITEM HEADER MENU BAR
+// agegar input checkbox clientes en actionsshifts 
+// estudiar posibilidad de notificaciones web 

@@ -20,16 +20,18 @@ export const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         position: relative;
-        font-family: 'Montserrat', sans-serif;
+        font-family: "Kanit", sans-serif;
+        font-weight: 300;
+        font-style: normal;
         -webkit-tap-highlight-color: transparent;
     }
 `;
 
 export const FondImg = styled.img`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -50;
-    background-color: red;
-    object-fit: cover;
-`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -50;
+  background-color: red;
+  object-fit: cover;
+`;

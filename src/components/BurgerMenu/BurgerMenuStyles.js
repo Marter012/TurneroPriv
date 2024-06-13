@@ -8,6 +8,7 @@ export const BurgerMenuContainer = styled.div`
   cursor: pointer;
   right: 0;
   top: 5px;
+  overflow: hidden;
   z-index: +100;
   transition-duration: 1s;
   div {

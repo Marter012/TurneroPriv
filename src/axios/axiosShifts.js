@@ -3,7 +3,7 @@ import { BASE_URL } from "../utils/constants";
 
 export const getShifts = async (category) => {
   try {
-    const response = await axios.post(`${BASE_URL}/auth/getShifts`, {
+    const response = await axios.post(`${BASE_URL}/authShifts/getShifts`, {
       category,
     });
     return response?.data?.shifts;
@@ -24,7 +24,7 @@ export const createShift = async (
   activity
 ) => {
   try {
-    const response = await axios.post(`${BASE_URL}/auth/addShifts`, {
+    const response = await axios.post(`${BASE_URL}/authShifts/addShifts`, {
       category,
       date,
       schedule,
@@ -43,7 +43,7 @@ export const createShift = async (
 
 export const updateStateShifts = async (code) => {
   try {
-    const response = await axios.post(`${BASE_URL}/auth/cancelShifts`, {
+    const response = await axios.post(`${BASE_URL}/authShifts/cancelShifts`, {
       code,
     });
     return { response: response };

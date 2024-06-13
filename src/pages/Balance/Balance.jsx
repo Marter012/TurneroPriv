@@ -1,11 +1,11 @@
 import React from 'react'
 import { WrapperBalance } from './BalanceStyles'
-import TableBalance from '../../components/Table/TableBalance'
+import TableActivities from '../../components/Table/TableActivities'
 
 const Balance = () => {
   return (
     <WrapperBalance>
-      <TableBalance/>
+      <TableActivities/>
     </WrapperBalance>
   )
 }
