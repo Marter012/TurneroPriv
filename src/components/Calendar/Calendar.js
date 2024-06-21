@@ -16,11 +16,6 @@ import { FaCalendarAlt } from "react-icons/fa";
 const MontserratCalendar = () => {
   const [date, setDate] = useState(new Date());
   const dispatch = useDispatch();
-  
-  useEffect(() => {
-    dispatch(SelectDay(dayjs(date)));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     dispatch(SelectDay(dayjs(date)));
@@ -49,13 +44,13 @@ const Calendar1 = ({ mobileState }) => {
       {hiddenCalendar && (
         <ModalOverlayStyled
           onClick={() => dispatch(toggleHiddenCalendar(!hiddenCalendar))}
-          hiddenMenu={!hiddenCalendar}
+          $hiddenMenu={!hiddenCalendar}
           s_zIndex={"6"}
         />
       )}
 
-      <ContainerMontserrat hiddenCalendar={!hiddenCalendar}>
-        <MontserratCalendar hiddenCalendar={hiddenCalendar} />
+      <ContainerMontserrat $hiddenCalendar={!hiddenCalendar}>
+        <MontserratCalendar $hiddenCalendar={hiddenCalendar} />
       </ContainerMontserrat>
 
       <CalendarMenu
@@ -65,7 +60,9 @@ const Calendar1 = ({ mobileState }) => {
       >
         <CalendarMenuItems>
           {title.split("").map((item) => {
-            return <p>{item}</p>;
+            return (
+              <p key={`${item}${Math.floor(Math.random() * 100)}`}>{item}</p>
+            );
           })}
         </CalendarMenuItems>
         <FaCalendarAlt />

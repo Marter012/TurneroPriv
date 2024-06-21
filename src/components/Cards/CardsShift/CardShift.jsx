@@ -14,9 +14,9 @@ const CardShift = ({ item }, hiddenShift) => {
       </ContainerCardShift>
       {hiddenShift && (
         <ModalOverlayStyled
-          s_zIndex={10}
+          $s_zIndex={10}
           onClick={() => dispatch(toggleShifts())}
-          hiddenMenu={!hiddenShift}
+          $hiddenMenu={!hiddenShift}
         />
       )}
     </>

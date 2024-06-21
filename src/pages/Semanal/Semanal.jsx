@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { SemanalContainer, SemanalWrapper } from "./SemanalStyles";
 import Day from "../../components/Day/Day";
 import { dayWeeks } from "../../utils/daysWeek";
@@ -12,15 +12,18 @@ import CardUpdateShift from "../../components/Cards/CardUpdateShift/CardUpdateSh
 
 const Semanal = () => {
   const selectedDay = useSelector((state) => state.selectDay.day);
-  useActiveGetShifts();
-  const shifts = useSelector((state) => state.shifts.listShifts);
+
+  const shifts = useSelector((state) => state.shifts?.listShiftsDay);
+  const [listShifts, setListShifts] = useState([...shifts]);
+  useActiveGetShifts(selectedDay, setListShifts);
+
   const hiddenShift = useSelector((state) => state.selectedShifts.hidden);
+  
   const shiftSelected = useSelector(
     (state) => state.selectedShifts.shiftSelected
   );
-  const activatorUpdate = useSelector(
-    (state) => state.updateShift.activator
-  );
+  const activatorUpdate = useSelector((state) => state.updateShift.activator);
+
   return (
     <SemanalWrapper>
       <DatePickerUI />
@@ -41,7 +44,7 @@ const Semanal = () => {
                   .format("YYYY-MM-DD")
                   .toString())
               }
-              shiftsDay={shifts?.filter(
+              shiftsDay={listShifts?.filter(
                 (item) =>
                   item.date === dayjs(nextDay).format("YYYY-MM-DD") &&
                   item.state === true

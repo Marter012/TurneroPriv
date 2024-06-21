@@ -22,7 +22,7 @@ const Day = ({ day, nextDay, activeDay, shiftsDay }) => {
     dispatch(toggleShifts(true));
   };
   return (
-    <ContainerDay activeDay={activeDay}>
+    <ContainerDay $activeDay={activeDay}>
       <ContainerDayWeek onClick={(e) => dispatch(SelectDay(dayjs(nextDay)))}>
         <h3>{day}</h3>
         <p>{formateDate}</p>

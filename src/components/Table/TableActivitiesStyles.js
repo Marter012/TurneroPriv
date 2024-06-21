@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerTable = styled.div`
   width: 80vw;
+  position: absolute;
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@ export const ContainerTableActivitiesColumns = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   font-size: 1.3rem;
   font-weight: 600;
+  position: relative;
   p {
     margin: 0px;
     padding: 0px;
@@ -30,14 +32,14 @@ export const ContainerTableActivitiesColumns = styled.div`
   }
 `;
 
-export const ContainerTableActivitiesRows = styled(ContainerTableActivitiesColumns)`
+export const ContainerTableActivitiesRows = styled(
+  ContainerTableActivitiesColumns
+)`
   background-color: rgb(0, 0, 0, 0.4);
-  min-height: 40px;
+  min-height: 30px;
   position: relative;
-
-  padding-top: 5px;
-  margin-top: 5px;
-  padding-bottom: 5px;
+  margin: 0;
+  padding: 0;
   font-size: 1.2rem;
   font-weight: 400;
 
@@ -47,18 +49,18 @@ export const ContainerTableActivitiesRows = styled(ContainerTableActivitiesColum
   }
 
   @media (max-width: 768px) {
-  width: 800px;
-    
+    width: 800px;
   }
 `;
 
 export const ContainerTableActivitiesColumn = styled.div`
-  ${({ orderTable }) => {
-    switch (orderTable) {
+  text-align: center;
+
+  ${({ $orderTable }) => {
+    switch ($orderTable) {
       case "one":
         return `
             grid-column: 1;
-            text-align: center;
         `;
       case "two":
         return `
@@ -83,12 +85,24 @@ export const ContainerTableActivitiesColumn = styled.div`
 `;
 
 export const BoxTableActivities = styled.div`
-  width: 800px;
+  width: 100%;
   height: 85%;
-  display: flex;
-  justify-content: start;
-  align-items: start;
-  flex-direction: column;
+  display: block;
   overflow-x: hidden;
   overflow-y: scroll;
+  scrollbar-width: none;
+  position: relative;
+  .txt {
+    text-align: center;
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 768px) {
+    width: 800px;
+  }
 `;

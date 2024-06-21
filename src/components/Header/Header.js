@@ -19,11 +19,11 @@ const Header = () => {
       {hiddenMenu && (
         <ModalOverlayStyled
           onClick={() => dispatch(toggleHiddenMenu(!hiddenMenu))}
-          hiddenMenu={!hiddenMenu}
-          s_zIndex={99}
+          $hiddenMenu={!hiddenMenu}
+          $s_zIndex={99}
         />
       )}
-      <HeaderContainer hiddenMenu={hiddenMenu}>
+      <HeaderContainer $hiddenMenu={hiddenMenu}>
         <HeaderItem>
           <Link to={"/"}>
             <FaCalendarAlt />

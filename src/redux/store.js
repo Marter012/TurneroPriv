@@ -7,9 +7,9 @@ import HeaderItemsReducer from "./HeaderItems/HeaderItemsSlice";
 import SelectedDayReducer from "./SelectedDay/SelectedDaySlice";
 import ShiftsReducer from "./Shifts/ShiftsSlice";
 import CalendarMenuReducer from "./CalendarMenu/CalendarMenuSlice";
-import GetShiftsReducer from "./GetShifts/GetShiftsSlice";
 import SelectedShiftsReducer from "./SelectedShifts/SelectedShifts";
 import UpdateShiftReducer from "./UpdateShift/UpdateShiftSlice";
+import ActivitiesReducer from "./Activities/ActivitiesSlice";
 
 const reducers = combineReducers({
   shifts: ShiftsReducer,
@@ -19,13 +19,13 @@ const reducers = combineReducers({
   selectDay: SelectedDayReducer,
   updateShift: UpdateShiftReducer,
   calendarMenu: CalendarMenuReducer,
-  getShifts: GetShiftsReducer,
+  activities: ActivitiesReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whiteList: [],
+  blackList: ["activities"],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);

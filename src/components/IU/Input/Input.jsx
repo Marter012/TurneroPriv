@@ -6,12 +6,13 @@ import {
   InputStyles,
 } from "./InputStyled";
 
-const Input = ({id, name, type, placeholder }) => {
+const Input = ({ id, name, type, placeholder }) => {
   return (
     <Field name={name}>
       {({ field, form: { errors, touched } }) => (
         <InputContainerStyles>
           <InputStyles
+            autoComplete="off"
             type={type}
             id={id}
             placeholder={placeholder}

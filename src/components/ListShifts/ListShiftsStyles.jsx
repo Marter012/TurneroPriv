@@ -11,7 +11,7 @@ export const ListShiftsWrapper = styled.div`
   scrollbar-color: transparent transparent;
 
   @media (max-width: 768px) {
-    display: ${({ selectedNav }) => (selectedNav ? "flex" : "none")};
+    display: ${({ $selectedNav }) => ($selectedNav ? "flex" : "none")};
     background-color: transparent;
     margin-top: 5%;
     height: 95%;
@@ -30,4 +30,16 @@ export const ListShiftsContainer = styled.div`
   align-items: center;
   overflow-y: scroll;
   scrollbar-color: transparent transparent;
+  position: relative;
+  .txt {
+    width: 100%;
+    background-color: rgb(250,250,250,0.5);
+    text-align: center;
+    position: absolute;
+    font-size: 2rem;
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 `;

@@ -17,13 +17,13 @@ const BurgerMenu = () => {
       onClick={() => {
         dispatch(toggleHiddenMenu(!hiddenMenu));
       }}
-      activeMenu={hiddenMenu}
+      $activeMenu={hiddenMenu}
     >
       <div>
-        <ArrowBurger activeMenu={hiddenMenu}>
+        <ArrowBurger $activeMenu={hiddenMenu}>
           <FaArrowDown />
         </ArrowBurger>
-        <ScissorsBurger activeMenu={hiddenMenu}>
+        <ScissorsBurger $activeMenu={hiddenMenu}>
           <FaScissors />
         </ScissorsBurger>
       </div>

@@ -5,7 +5,6 @@ import { updateStateShifts } from "../../axios/axiosShifts";
 
 import { useDispatch } from "react-redux";
 import Loader from "../Loader/Loader";
-import { activeGet } from "../../redux/GetShifts/GetShiftsSlice";
 import {
   selectedShift,
   toggleNavShifts,
@@ -20,6 +19,7 @@ import {
   selectedShiftUpdate,
   toggleShiftsUpdate,
 } from "../../redux/UpdateShift/UpdateShiftSlice";
+import { activeGet } from "../../redux/Shifts/ShiftsSlice";
 
 const Shifts = ({
   date,
@@ -37,11 +37,12 @@ const Shifts = ({
 
   const cancelShift = () => {
     updateStateShifts(code);
+    setActiveLoader(true);
+    console.log("activado");
     setTimeout(() => {
-      setActiveLoader(true);
-      dispatch(toggleNavShifts(false));
       dispatch(activeGet());
-    }, 500);
+      dispatch(toggleNavShifts(false));
+    }, 1000);
   };
 
   const updateShift = () => {
@@ -69,11 +70,13 @@ const Shifts = ({
     <ShiftsCard>
       <ShiftsCardColumn className="two">
         <h2>
-          {name.split(" ")[0].toUpperCase().replace(/\b\w/g, function (l) {
-            return l.toUpperCase();
-          })}
+          {name
+            .split(" ")[0]
+            .toUpperCase()
+            .replace(/\b\w/g, function (l) {
+              return l.toUpperCase();
+            })}
         </h2>
-
       </ShiftsCardColumn>
       <ShiftsCardColumn className="one">
         <p>{schedule} hs</p>
@@ -92,7 +95,7 @@ const Shifts = ({
       <ShiftsCardColumn className="five">
         {activities.map((item) => {
           return (
-            <span>
+            <span key={item.name}>
               {item.toLowerCase().replace(/\b\w/g, function (l) {
                 return l.toUpperCase();
               })}
@@ -101,7 +104,7 @@ const Shifts = ({
         })}
       </ShiftsCardColumn>
       <ShiftsCardColumn className="six">
-        <ButtonStyles s_padding={"5px 15px 5px 15px"} bg_color="green">
+        <ButtonStyles $s_padding={"5px 15px 5px 15px"} $bg_color="green">
           <a
             href={`https://api.whatsapp.com/send/?phone=${phone}&text=Hola ${name
               .toLowerCase()
@@ -115,39 +118,39 @@ const Shifts = ({
       </ShiftsCardColumn>
 
       <ButtonStyles
-        bg_color="red"
-        s_position="absolute"
-        s_height="30px"
-        s_width="30px"
-        s_border_radius="50%"
-        s_top="5%"
-        s_rigth="-30px"
-        onClick={cancelShift}
+        $bg_color="red"
+        $s_position="absolute"
+        $s_height="30px"
+        $s_width="30px"
+        $s_border_radius="50%"
+        $s_top="5%"
+        $s_rigth="-30px"
+        onClick={() => cancelShift()}
       >
         {activeLoader ? <Loader /> : <MdDeleteForever />}
       </ButtonStyles>
 
       <ButtonStyles
-        bg_color="#99ee99"
-        s_position="absolute"
-        s_height="30px"
-        s_width="30px"
-        s_border_radius="50%"
-        s_top="37%"
-        s_rigth="-30px"
+        $bg_color="#99ee99"
+        $s_position="absolute"
+        $s_height="30px"
+        $s_width="30px"
+        $s_border_radius="50%"
+        $s_top="37%"
+        $s_rigth="-30px"
         onClick={() => updateShift()}
       >
         <GrDocumentUpdate />
       </ButtonStyles>
 
       <ButtonStyles
-        bg_color="pink"
-        s_position="absolute"
-        s_height="30px"
-        s_width="30px"
-        s_border_radius="50%"
-        s_top="70%"
-        s_rigth="-30px"
+        $bg_color="pink"
+        $s_position="absolute"
+        $s_height="30px"
+        $s_width="30px"
+        $s_border_radius="50%"
+        $s_top="70%"
+        $s_rigth="-30px"
         onClick={() =>
           showCard({
             date,

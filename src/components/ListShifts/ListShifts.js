@@ -13,13 +13,14 @@ const ListShifts = () => {
   const hiddenShift = useSelector((state) => state.selectedShifts.hidden);
 
   const selectedNav = useSelector((state) => state.selectedShifts.selected);
-  const [lett, setlett] = useState([...shifts]);
-  useActiveGetShifts(selectDay, setlett);
+  const [listShifts, setListShifts] = useState([...shifts]);
+
+  useActiveGetShifts(selectDay, setListShifts);
   const shiftSelected = useSelector(
     (state) => state.selectedShifts.shiftSelected
   );
 
-  lett.sort(function (a, b) {
+  listShifts.sort(function (a, b) {
     return (
       a.schedule.split(":").map((item) => parseInt(item))[0] +
       a.schedule.split(":").map((item) => parseInt(item))[1] / 60 -
@@ -27,13 +28,21 @@ const ListShifts = () => {
         b.schedule.split(":").map((item) => parseInt(item))[1] / 60)
     );
   });
+
   return (
-    <ListShiftsWrapper selectedNav={selectedNav === 1}>
+    <ListShiftsWrapper $selectedNav={selectedNav === 1}>
       <DatePickerUI />
 
       <ListShiftsContainer>
-        {lett &&
-          lett
+        {listShifts?.filter((item) => {
+          return (
+            item.date === dayjs(selectDay).format("YYYY-MM-DD") &&
+            item.state === true
+          );
+        }).length === 0 ? (
+          <p className="txt">No hay turnos asignados al dia.</p>
+        ) : (
+          listShifts
             ?.filter((item) => {
               return (
                 item.date === dayjs(selectDay).format("YYYY-MM-DD") &&
@@ -43,12 +52,12 @@ const ListShifts = () => {
             .map((item) => {
               return (
                 <Shifts
-                  onClick={() => console.log("hola")}
                   key={item.code}
                   {...item}
                 />
               );
-            })}
+            })
+        )}
       </ListShiftsContainer>
       {hiddenShift && (
         <CardShift hiddenShift={hiddenShift} item={shiftSelected} />

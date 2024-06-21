@@ -1,11 +1,9 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 
-export const getShifts = async (category) => {
+export const getShifts = async () => {
   try {
-    const response = await axios.post(`${BASE_URL}/authShifts/getShifts`, {
-      category,
-    });
+    const response = await axios.get(`${BASE_URL}/authShifts/getShifts`);
     return response?.data?.shifts;
   } catch (error) {
     console.log(error);
@@ -14,7 +12,6 @@ export const getShifts = async (category) => {
 };
 
 export const createShift = async (
-  category,
   date,
   schedule,
   name,
@@ -25,7 +22,6 @@ export const createShift = async (
 ) => {
   try {
     const response = await axios.post(`${BASE_URL}/authShifts/addShifts`, {
-      category,
       date,
       schedule,
       name,
@@ -64,7 +60,7 @@ export const updateShifts = async (
   activity
 ) => {
   try {
-    const response = await axios.post(`${BASE_URL}/auth/updateShifts`, {
+    const response = await axios.post(`${BASE_URL}/authShifts/updateShifts`, {
       code,
       date,
       schedule,

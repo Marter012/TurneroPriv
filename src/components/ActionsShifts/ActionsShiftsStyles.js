@@ -10,7 +10,7 @@ export const ContainerActionShifts = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    display: ${({ selectedNav }) => (selectedNav ? "flex" : "none")};
+    display: ${({ $selectedNav }) => ($selectedNav ? "flex" : "none")};
     margin-top: 5vh;
     height: 95vh;
   }

@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
   justify-content: space-evenly;
   position: absolute;
   align-items: center;
-  top: ${({ hiddenMenu }) => (hiddenMenu ? "0px;" : "-300px;")};
+  top: ${({ $hiddenMenu }) => ($hiddenMenu ? "0px;" : "-300px;")};
   transition-duration: 0.5s;
 
   p:hover {
@@ -58,12 +58,12 @@ export const ModalOverlayStyled = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: ${({ s_zIndex }) => (s_zIndex ? s_zIndex : "+11;")};
+  z-index: ${({ $s_zIndex }) => ($s_zIndex ? $s_zIndex: "+11;")};
   width: 100vw;
   height: 100vh;
 
-  ${({ hiddenMenu }) =>
-    !hiddenMenu &&
+  ${({ $hiddenMenu }) =>
+    !$hiddenMenu &&
     css`
       backdrop-filter: blur(4px);
       background-color: rgb(0, 0, 0, 0.4);

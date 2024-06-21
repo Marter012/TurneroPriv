@@ -10,7 +10,7 @@ const NavShists = () => {
   const formatDay = dayjs(selectedDay).format(`DD / MM`);
   const dispatch = useDispatch();
   return (
-    <ContainerNavShifts activeNavShift={false}>
+    <ContainerNavShifts>
       <ButtonStyles
         onClick={() => {
           dispatch(selectedNavShifts(1));

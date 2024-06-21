@@ -12,7 +12,7 @@ export const BurgerMenuContainer = styled.div`
   z-index: +100;
   transition-duration: 1s;
   div {
-    rotate: ${({ activeMenu }) => (activeMenu ? "270deg" : "0deg")};
+    rotate: ${({ $activeMenu }) => ($activeMenu ? "270deg" : "0deg")};
   }
   svg,
   path {
@@ -28,15 +28,15 @@ export const BurgerMenuContainer = styled.div`
 
 export const ArrowBurger = styled.div`
   position: absolute;
-  z-index: ${({ activeMenu }) => (activeMenu ? "1" : "0")};
-  opacity: ${({ activeMenu }) => (activeMenu ? "1" : "0")};
+  z-index: ${({ $activeMenu }) => ($activeMenu ? "1" : "0")};
+  opacity: ${({ $activeMenu }) => ($activeMenu ? "1" : "0")};
   rotate: 270deg;
   transition-duration: 1s;
 `;
 
 export const ScissorsBurger = styled.div`
   order: 1;
-  z-index: ${({ activeMenu }) => (activeMenu ? "0" : "1")};
-  opacity: ${({ activeMenu }) => (activeMenu ? "0" : "1")};
+  z-index: ${({ $activeMenu }) => ($activeMenu ? "0" : "1")};
+  opacity: ${({ $activeMenu }) => ($activeMenu ? "0" : "1")};
   transition-duration: 1s;
 `;

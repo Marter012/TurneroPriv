@@ -13,6 +13,7 @@ const Button = ({
   s_top,
   s_rigth,
   s_left,
+  s_fontSize,
 }) => {
   return (
     <ButtonStyles
@@ -26,6 +27,7 @@ const Button = ({
       s_top={s_top}
       s_rigth={s_rigth}
       s_left={s_left}
+      s_fontSize={s_fontSize}
     >
       {children}
     </ButtonStyles>

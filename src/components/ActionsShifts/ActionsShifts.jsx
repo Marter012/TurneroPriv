@@ -8,7 +8,6 @@ import { addShiftsInitialValues } from "../Formik/InitialValues";
 import { ShiftsValidationSchema } from "../Formik/ValidationSchema";
 import { createShift } from "../../axios/axiosShifts";
 import Loader from "../Loader/Loader";
-import { activeGet } from "../../redux/GetShifts/GetShiftsSlice";
 import { SelectDay } from "../../redux/SelectedDay/SelectedDaySlice";
 import dayjs from "dayjs";
 import { selectedNavShifts } from "../../redux/SelectedShifts/SelectedShifts";
@@ -17,7 +16,7 @@ const ActionsShifts = () => {
   const selectedNav = useSelector((state) => state.selectedShifts.selected);
   const dispatch = useDispatch();
   return (
-    <ContainerActionShifts selectedNav={selectedNav === 2}>
+    <ContainerActionShifts $selectedNav={selectedNav === 2}>
       <Formik
         initialValues={addShiftsInitialValues}
         validationSchema={ShiftsValidationSchema}
@@ -25,11 +24,8 @@ const ActionsShifts = () => {
           const { date, schedule, name, price, location, phone, activity } =
             values;
 
-          let category = "shifts";
-
           //eslint-disable-next-line
           const shift = await createShift(
-            category,
             date,
             schedule,
             name,
@@ -40,7 +36,6 @@ const ActionsShifts = () => {
           );
           dispatch(SelectDay(dayjs(date)));
           dispatch(selectedNavShifts(1));
-          dispatch(activeGet());
           resetForm();
         }}
       >

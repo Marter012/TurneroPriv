@@ -7,8 +7,8 @@ export const ContainerDay = styled.div`
   text-align: center;
   overflow: hidden;
   border: 1px solid black;
-  background-color: ${({ activeDay }) =>
-    activeDay ? "rgb(200, 150, 160)" : "rgb(200, 150, 160, 0.5)"};
+  background-color: ${({ $activeDay }) =>
+    $activeDay ? "rgb(200, 150, 160)" : "rgb(200, 150, 160, 0.5)"};
   @media (max-width: 768px) {
     h3 {
       font-size: 1rem;

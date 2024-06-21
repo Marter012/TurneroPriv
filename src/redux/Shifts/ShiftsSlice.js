@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
+  activator: false,
   listShifts: "",
-  listShiftsDay :"",
+  listShiftsDay: "",
 };
 
 export const ShiftsSlice = createSlice({
@@ -15,9 +16,15 @@ export const ShiftsSlice = createSlice({
     addShiftsDay: (state, actions) => {
       return { ...state, listShiftsDay: actions.payload };
     },
+    activeGet: (state) => {
+      return {
+        ...state,
+        activator: !state.activator,
+      };
+    },
   },
 });
 
-export const { addShifts,addShiftsDay} = ShiftsSlice.actions;
+export const { addShifts, addShiftsDay, activeGet } = ShiftsSlice.actions;
 
 export default ShiftsSlice.reducer;

@@ -23,7 +23,4 @@ root.render(
   </>
 );
 
-// OBSERVAR PANTALLA DE COBROS, TIJERA Y DATEPICKER PAGE SEMANAL 
-// CREAR LISTA DE CLIENTES FIJOS, EN 4 ITEM HEADER MENU BAR
-// agegar input checkbox clientes en actionsshifts 
-// estudiar posibilidad de notificaciones web 
+// CREAR SECTION DE REGISTRO DE TURNOS POR NUMERO DE TELEFONO

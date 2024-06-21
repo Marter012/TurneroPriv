@@ -15,32 +15,32 @@ export const ContainerMontserrat = styled.div`
   position: absolute;
   width: 40vw;
   left: 0;
-  ${({ hiddenCalendar }) =>
-    hiddenCalendar
+  ${({ $hiddenCalendar }) =>
+    $hiddenCalendar
       ? " transform : translateX(-40vw);transition-duration: 1s;"
       : "transform : translateX(+60px);transition-duration: 1s;"}
   z-index: +7;
 
   @media (max-width: 768px) {
     width: 50vw;
-    ${({ hiddenCalendar }) =>
-      hiddenCalendar
+    ${({ $hiddenCalendar }) =>
+      $hiddenCalendar
         ? " transform : translateX(-50vw);transition-duration: 1s;"
         : "transform : translateX(+60px);transition-duration: 1s;"}
   }
   @media (max-width: 460px) {
     width: 90vw;
     left: 5vw;
-    ${({ hiddenCalendar }) =>
-      hiddenCalendar
+    ${({ $hiddenCalendar }) =>
+      $hiddenCalendar
         ? " transform : translateX(-95vw);transition-duration: 1s;"
         : "transform : translateX(0);transition-duration: 1s;"}
   }
 `;
 
 export const CalendarMenu = styled.div`
-  svg{
-    display : none;
+  svg {
+    display: none;
   }
   @media (max-width: 460px) {
     position: absolute;
@@ -49,9 +49,9 @@ export const CalendarMenu = styled.div`
     z-index: +8;
     bottom: 0;
     color: white;
-    svg{
-    display : flex;
-  }
+    svg {
+      display: flex;
+    }
   }
 `;
 
