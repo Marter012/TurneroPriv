@@ -18,7 +18,7 @@ const Semanal = () => {
   useActiveGetShifts(selectedDay, setListShifts);
 
   const hiddenShift = useSelector((state) => state.selectedShifts.hidden);
-  
+
   const shiftSelected = useSelector(
     (state) => state.selectedShifts.shiftSelected
   );
@@ -35,7 +35,6 @@ const Semanal = () => {
             .toString();
           return (
             <Day
-              key={id}
               activeDay={dayjs(selectedDay).format("YYYY-MM-DD") === nextDay}
               day={day}
               nextDay={
@@ -44,6 +43,7 @@ const Semanal = () => {
                   .format("YYYY-MM-DD")
                   .toString())
               }
+              key={id}
               shiftsDay={listShifts?.filter(
                 (item) =>
                   item.date === dayjs(nextDay).format("YYYY-MM-DD") &&

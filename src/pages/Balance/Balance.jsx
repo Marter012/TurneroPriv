@@ -11,9 +11,6 @@ const Balance = () => {
   const toggleUpdateActivity = useSelector(
     (state) => state.activities.stateCardUpdate
   );
-  // const activitySelected = useSelector(
-  //   (state) => state.activities.activitySelected
-  // );
 
   return (
     <WrapperBalance>

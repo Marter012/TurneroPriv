@@ -32,9 +32,7 @@ export const ContainerTableActivitiesColumns = styled.div`
   }
 `;
 
-export const ContainerTableActivitiesRows = styled(
-  ContainerTableActivitiesColumns
-)`
+export const ContainerTableActivitiesRows = styled(ContainerTableActivitiesColumns)`
   background-color: rgb(0, 0, 0, 0.4);
   min-height: 30px;
   position: relative;

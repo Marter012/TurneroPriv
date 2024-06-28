@@ -30,17 +30,15 @@ const Day = ({ day, nextDay, activeDay, shiftsDay }) => {
       <ContainerShifts>
         {shiftsDay.map((item) => {
           return (
-            <>
-              <ShiftDay
-                onClick={() => {
-                  updateShiftSelected(item);
-                }}
-                key={item.name}
-              >
-                <p>{item.name.split(" ")[0].toUpperCase()}</p>
-                <span>{item.schedule}</span>
-              </ShiftDay>
-            </>
+            <ShiftDay
+              key={item.code}
+              onClick={() => {
+                updateShiftSelected(item);
+              }}
+            >
+              <p>{item.name.split(" ")[0].toUpperCase()}</p>
+              <span>{item.schedule}</span>
+            </ShiftDay>
           );
         })}
       </ContainerShifts>

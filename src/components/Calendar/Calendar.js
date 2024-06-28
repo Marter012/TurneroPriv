@@ -45,7 +45,7 @@ const Calendar1 = ({ mobileState }) => {
         <ModalOverlayStyled
           onClick={() => dispatch(toggleHiddenCalendar(!hiddenCalendar))}
           $hiddenMenu={!hiddenCalendar}
-          s_zIndex={"6"}
+          $s_zIndex={"6"}
         />
       )}
 

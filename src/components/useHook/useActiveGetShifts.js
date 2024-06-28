@@ -6,7 +6,6 @@ import { addShifts } from "../../redux/Shifts/ShiftsSlice";
 export const useActiveGetShifts = (selectDay, setListShifts) => {
   const dispatch = useDispatch();
   const activeGet = useSelector((state) => state.shifts.activator);
-  console.log(activeGet);
   useEffect(() => {
     const active = async () => {
       const response = await getShifts();

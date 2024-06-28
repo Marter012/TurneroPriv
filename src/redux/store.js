@@ -10,6 +10,7 @@ import CalendarMenuReducer from "./CalendarMenu/CalendarMenuSlice";
 import SelectedShiftsReducer from "./SelectedShifts/SelectedShifts";
 import UpdateShiftReducer from "./UpdateShift/UpdateShiftSlice";
 import ActivitiesReducer from "./Activities/ActivitiesSlice";
+import CustomersReducer from "./Customers/CustomersSlice";
 
 const reducers = combineReducers({
   shifts: ShiftsReducer,
@@ -20,6 +21,7 @@ const reducers = combineReducers({
   updateShift: UpdateShiftReducer,
   calendarMenu: CalendarMenuReducer,
   activities: ActivitiesReducer,
+  customers: CustomersReducer,
 });
 
 const persistConfig = {

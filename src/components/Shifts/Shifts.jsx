@@ -20,6 +20,7 @@ import {
   toggleShiftsUpdate,
 } from "../../redux/UpdateShift/UpdateShiftSlice";
 import { activeGet } from "../../redux/Shifts/ShiftsSlice";
+import dayjs from "dayjs";
 
 const Shifts = ({
   date,
@@ -66,6 +67,13 @@ const Shifts = ({
     dispatch(toggleShifts(true));
   };
 
+  const msg = `💈Buenas , Confirmamos tu turno?💈 %0A
+    -Dia : ${dayjs(date).format("DD / MM")}  %0A
+    -Horario : ${schedule}  %0A
+    -Lugar : ${location}  %0A
+    -Precio : $${price}  %0A
+    Espero tu respuesta.💇🏼‍♀`;
+
   return (
     <ShiftsCard>
       <ShiftsCardColumn className="two">
@@ -95,7 +103,7 @@ const Shifts = ({
       <ShiftsCardColumn className="five">
         {activities.map((item) => {
           return (
-            <span key={item.name}>
+            <span key={code}>
               {item.toLowerCase().replace(/\b\w/g, function (l) {
                 return l.toUpperCase();
               })}
@@ -105,13 +113,7 @@ const Shifts = ({
       </ShiftsCardColumn>
       <ShiftsCardColumn className="six">
         <ButtonStyles $s_padding={"5px 15px 5px 15px"} $bg_color="green">
-          <a
-            href={`https://api.whatsapp.com/send/?phone=${phone}&text=Hola ${name
-              .toLowerCase()
-              .replace(/\b\w/g, function (l) {
-                return l.toUpperCase();
-              })}, confirmamos tu turno en ${location.toUpperCase()} a las ${schedule}?`}
-          >
+          <a href={`https://api.whatsapp.com/send/?phone=${phone}&text=${msg}`}>
             {phone}
           </a>
         </ButtonStyles>

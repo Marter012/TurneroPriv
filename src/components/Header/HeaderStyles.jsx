@@ -21,7 +21,7 @@ export const HeaderContainer = styled.header`
 `;
 
 export const HeaderItem = styled.p`
-  width: 25%;
+  width: 20%;
   height: 60%;
   border-radius: 10px;
 
@@ -45,7 +45,7 @@ export const HeaderItem = styled.p`
   }
 
   @media (max-width: 460px) {
-    width: 30%;
+    width: 20%;
 
     a {
       font-size: 1.1rem;

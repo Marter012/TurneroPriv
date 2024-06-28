@@ -24,7 +24,7 @@ const CardActivities = ({ toggleActivities }) => {
     <>
       {toggleActivities && (
         <ModalOverlayStyled
-          s_zIndex={8}
+          $s_zIndex={8}
           onClick={() => dispatch(toggleCardActivities())}
           $hiddenMenu={!toggleActivities}
         />
@@ -67,7 +67,7 @@ const CardActivities = ({ toggleActivities }) => {
                   <p>Precio</p>
                   <Input name="finalPrice" type="text" placeholder="Precio" />
                 </InputCardActivity>
-                <Submit s_width={"200px"} s_height={"50px"} type="button">
+                <Submit $s_width={"200px"} $s_height={"50px"} type="button">
                   {isSubmitting ? <Loader /> : "Crear"}
                 </Submit>
               </Form>

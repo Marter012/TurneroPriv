@@ -50,7 +50,7 @@ const ActionsShifts = () => {
             <Input name="location" type="text" placeholder="Lugar" />
             <Input name="phone" type="number" placeholder="Celular" />
             <Input name="activity" type="text" placeholder="Actividades" />
-            <Submit s_width={"200px"} s_height={"50px"} type="button">
+            <Submit $s_width={"200px"} $s_height={"50px"} type="button">
               {isSubmitting ? <Loader /> : "Cargar Turno"}
             </Submit>
           </Form>

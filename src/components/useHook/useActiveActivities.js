@@ -5,7 +5,6 @@ import { updateActivities } from "../../redux/Activities/ActivitiesSlice";
 
 export const useActiveGetActivities = (activeUse, setListActivities) => {
   const dispatch = useDispatch();
-  console.log(activeUse);
   useEffect(() => {
     const active = async () => {
       const response = await getActivities();

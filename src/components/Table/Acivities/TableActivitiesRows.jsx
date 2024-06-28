@@ -35,19 +35,19 @@ const TableActivitiesRows = ({ code, name, cost, finalPrice, netIncome }) => {
         <GrDocumentUpdate />
       </ButtonStyles>
 
-      <ContainerTableActivitiesColumn orderTable="one">
+      <ContainerTableActivitiesColumn $orderTable="one">
         <p>{code}</p>
       </ContainerTableActivitiesColumn>
-      <ContainerTableActivitiesColumn orderTable="two">
+      <ContainerTableActivitiesColumn $orderTable="two">
         <p>{name}</p>
       </ContainerTableActivitiesColumn>
-      <ContainerTableActivitiesColumn orderTable="three">
+      <ContainerTableActivitiesColumn $orderTable="three">
         <p>{cost}</p>
       </ContainerTableActivitiesColumn>
-      <ContainerTableActivitiesColumn orderTable="four">
+      <ContainerTableActivitiesColumn $orderTable="four">
         <p>{finalPrice}</p>
       </ContainerTableActivitiesColumn>
-      <ContainerTableActivitiesColumn orderTable="five">
+      <ContainerTableActivitiesColumn $orderTable="five">
         <p>${netIncome}</p>
       </ContainerTableActivitiesColumn>
       <ButtonStyles

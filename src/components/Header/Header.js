@@ -10,6 +10,7 @@ import { MdRequestPage } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleHiddenMenu } from "../../redux/BurgerMenu/BurgerMenuSlice";
+import { BsFileEarmarkPerson } from "react-icons/bs";
 
 const Header = () => {
   const hiddenMenu = useSelector((state) => state.burgerMenu.hidden);
@@ -37,6 +38,11 @@ const Header = () => {
         <HeaderItem>
           <Link to={"/cobros"}>
             <MdRequestPage />
+          </Link>
+        </HeaderItem>
+        <HeaderItem>
+          <Link to={"/customerRegistration"}>
+            <BsFileEarmarkPerson />
           </Link>
         </HeaderItem>
       </HeaderContainer>

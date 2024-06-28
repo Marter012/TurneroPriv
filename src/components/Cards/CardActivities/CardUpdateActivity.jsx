@@ -21,13 +21,12 @@ import Loader from "../../Loader/Loader";
 const CardUpdateActivity = ({ toggleUpdateActivity }) => {
   const activity = useSelector((state) => state.activities.activitySelected);
   const { code, name, cost, finalPrice } = activity;
-  console.log(activity);
   const dispatch = useDispatch();
   return (
     <>
       {toggleUpdateActivity && (
         <ModalOverlayStyled
-          s_zIndex={10}
+          $s_zIndex={10}
           onClick={() => dispatch(toggleCardUpdateActivities())}
           $hiddenMenu={!toggleUpdateActivity}
         />
@@ -79,7 +78,7 @@ const CardUpdateActivity = ({ toggleUpdateActivity }) => {
                   <p>Precio</p>
                   <Input name="finalPrice" type="text" placeholder="Precio" />
                 </InputCardActivity>
-                <Submit s_width={"200px"} s_height={"50px"} type="button">
+                <Submit $s_width={"200px"} $s_height={"50px"} type="button">
                   {isSubmitting ? <Loader /> : "Actualizar"}
                 </Submit>
               </Form>
